@@ -216,7 +216,7 @@
 .candle-film{margin:26px auto 0;max-width:520px}
 .candle-film .mt,.candle-film .mw{color:#f2e3c2;text-align:center}
 .candle-film .mthumb{border-color:rgba(201,162,74,.6)}
-#player{border:0;padding:0;background:transparent;max-width:min(960px,94vw);width:100%}
+#player{border:0;padding:0;background:transparent;max-width:none;width:min(960px,94vw);margin:auto}
 #player::backdrop{background:rgba(12,8,4,.86)}
 .pbox{background:#16100a;border:1px solid rgba(201,162,74,.55);border-radius:8px;overflow:hidden;color:#f2e3c2}
 .pbar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(201,162,74,.25)}
@@ -230,7 +230,7 @@
 .paudio{display:none;padding:26px 20px 30px;text-align:center}
 .paudio img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,162,74,.7);margin:0 4px 16px}
 .paudio audio{width:100%;max-width:560px}
-.paudio .cap{min-height:3.2em;margin:14px auto 0;max-width:560px;font-size:17px;line-height:1.5}
+.paudio .cap{white-space:pre-line;min-height:3.2em;margin:14px auto 0;max-width:560px;font-size:17px;line-height:1.5}
 .pbox.audio-mode #pvideo{display:none}
 .pbox.audio-mode .paudio{display:block}
 @media (max-width:600px){.listen .faces img{width:38px;height:38px}.pbar{flex-wrap:wrap}}
@@ -242,7 +242,7 @@
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-  <nav class="hero-nav"><a href="#tributes">Tributes</a><span>&middot;</span><a href="#candle">Light a Candle</a><span>&middot;</span><a href="#photos">Photographs</a></nav>
+  <nav class="hero-nav"><a href="#tributes">Tributes</a><span>&middot;</span><a href="#candle">Light a Candle</a><span>&middot;</span><a href="#photos">Photographs</a><span>&middot;</span><a class="langlink" href="he/" lang="he" hreflang="he">עברית</a></nav>
   <div class="stars" id="stars"></div>
   <div class="hero-title">
     <div class="portrait"><img src="img/portrait.jpg" alt="Moshe Yeffet, smiling, in a houndstooth jacket and kippah"></div>
@@ -571,6 +571,9 @@
 </section>
 
 
+
+
+
 <!-- ================= MOMENTS ================= -->
 <section class="stone" id="moments">
   <div class="wrap">
@@ -734,25 +737,40 @@
       <button class="pbtn pclose" id="pclose" type="button" aria-label="Close">&times;</button>
     </div>
     <video id="pvideo" controls playsinline preload="none"></video>
-    <div class="paudio"><div id="pfaces"></div><audio id="paudio" controls preload="none"></audio><p class="cap" id="pcap"></p></div>
+    <div class="paudio"><div id="pfaces"></div><audio id="paudio" controls preload="none"></audio><p class="cap" id="pcap" dir="auto"></p></div>
   </div>
 </dialog>
 <script>
 (function(){
+  var H=document.documentElement,LANG=H.lang==='he'?'he':'en',B=H.getAttribute('data-base')||'',pref=LANG,
+      T=LANG==='he'?{listen:'האזנה בלבד',watch:'צפייה בווידאו'}:{listen:'Listen only',watch:'Watch video'};
   var dlg=document.getElementById('player'),box=document.getElementById('pbox'),v=document.getElementById('pvideo'),
       au=document.getElementById('paudio'),mode=document.getElementById('pmode'),cap=document.getElementById('pcap'),cur=null,audioMode=false;
-  function track(el,id){el.querySelectorAll('track').forEach(function(t){t.remove()});var t=document.createElement('track');
-    t.kind='captions';t.label='English';t.srclang='en';t.src='media/vtt/'+id+'.vtt';t.default=true;el.appendChild(t);
-    t.addEventListener('load',function(){t.track.mode=(el===v?'showing':'hidden')});
-    t.track.mode=(el===v?'showing':'hidden');
-    if(el===au){t.track.oncuechange=function(){var c=t.track.activeCues;cap.textContent=c&&c.length?c[0].text.replace(/<[^>]+>/g,''):''}}}
+  function ts(t){var p=t.trim().split(':');return p.length==3?(+p[0])*3600+(+p[1])*60+parseFloat(p[2]):(+p[0])*60+parseFloat(p[1])}
+  function showCap(tt){tt.oncuechange=function(){var c=tt.activeCues;cap.textContent=c&&c.length?c[0].text.replace(/<[^>]+>/g,''):''}}
+  function setModes(el){for(var i=0;i<el.textTracks.length;i++){var tt=el.textTracks[i];
+    if(tt.language===pref){tt.mode=(el===v?'showing':'hidden');if(el===au)showCap(tt)}else tt.mode='disabled'}}
+  function track(el,id){
+    if(window.__VTT){el._tt=el._tt||{};['en','he'].forEach(function(l){
+        var tt=el._tt[l]||(el._tt[l]=el.addTextTrack('captions',l==='he'?'עברית':'English',l));
+        tt.mode='hidden';while(tt.cues&&tt.cues.length)tt.removeCue(tt.cues[0]);
+        (window.__VTT[id+(l==='he'?'.he':'')]||'').replace(/\r/g,'').split(/\n\n+/).forEach(function(b){var L=b.split('\n');
+          var i=L.findIndex(function(x){return x.indexOf('-->')>-1});if(i<0)return;var m=L[i].split('-->');
+          tt.addCue(new VTTCue(ts(m[0]),ts(m[1].trim().split(' ')[0]),L.slice(i+1).join('\n')))})});
+      setModes(el);return}
+    el.querySelectorAll('track').forEach(function(t){t.remove()});
+    ['en','he'].forEach(function(l){var t=document.createElement('track');t.kind='captions';t.srclang=l;
+      t.label=l==='he'?'עברית':'English';t.src=B+'media/vtt/'+id+(l==='he'?'.he':'')+'.vtt';if(l===pref)t.default=true;
+      t.addEventListener('load',function(){setModes(el)});el.appendChild(t)});
+    setModes(el)}
+  function rememberPref(){for(var i=0;i<v.textTracks.length;i++)if(v.textTracks[i].mode==='showing')pref=v.textTracks[i].language}
   function load(){var id=cur.dataset.clip;
-    if(audioMode){v.pause();au.src='media/audio/'+id+'.m4a';track(au,id);box.classList.add('audio-mode');mode.textContent='Watch video';au.play().catch(function(){})}
-    else{au.pause();v.poster='media/posters/'+id+'_poster.jpg';v.src='media/clips/'+id+'.mp4';track(v,id);box.classList.remove('audio-mode');mode.textContent='Listen only';v.play().catch(function(){})}}
+    if(audioMode){rememberPref();v.pause();au.src=B+'media/audio/'+id+'.m4a';track(au,id);box.classList.add('audio-mode');mode.textContent=T.watch;au.play().catch(function(){})}
+    else{au.pause();v.poster=B+'media/posters/'+id+'_poster.jpg';v.src=B+'media/clips/'+id+'.mp4';track(v,id);box.classList.remove('audio-mode');mode.textContent=T.listen;v.play().catch(function(){})}}
   function open(btn){cur=btn;document.getElementById('ptitle').textContent=btn.dataset.title;document.getElementById('pwho').textContent=btn.dataset.who;
     var f=btn.querySelectorAll('.faces img');document.getElementById('pfaces').innerHTML=Array.prototype.map.call(f,function(i){return '<img src="'+i.getAttribute('src')+'" alt="">'}).join('');
     cap.textContent='';audioMode=false;if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');load()}
-  function close(){v.pause();au.pause();v.removeAttribute('src');au.removeAttribute('src');v.load();au.load();if(dlg.close)dlg.close();else dlg.removeAttribute('open')}
+  function close(){rememberPref();v.pause();au.pause();v.removeAttribute('src');au.removeAttribute('src');v.load();au.load();if(dlg.close)dlg.close();else dlg.removeAttribute('open')}
   document.addEventListener('click',function(e){var b=e.target.closest('[data-clip]');if(b){e.preventDefault();open(b)}});
   mode.addEventListener('click',function(){audioMode=!audioMode;load()});
   document.getElementById('pclose').addEventListener('click',close);
