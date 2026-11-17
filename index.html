@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In Loving Memory of Moshe Yeffet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#d9c49a; --stone-light:#ecdcb8; --stone-dark:#b39869;
+    --ink:#3b2a17; --ink-soft:#5c4528; --gold:#c9a24a; --night:#0f1630;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Cormorant Garamond",Georgia,serif; color:var(--ink);
+    background:var(--night); line-height:1.6; font-size:20px;
+  }
+  .he{font-family:"Frank Ruhl Libre",serif;direction:rtl}
+
+  /* ---------- HERO: Jerusalem at dusk ---------- */
+  .hero{
+    position:relative; min-height:max(100vh,860px); overflow:hidden;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+    background:
+      radial-gradient(ellipse at 50% 85%, rgba(255,190,110,.45) 0%, rgba(255,150,80,.15) 30%, transparent 60%),
+      linear-gradient(180deg,#0b1230 0%,#1d2550 30%,#4a3b5e 55%,#b0765a 78%,#e0a66a 92%);
+    text-align:center; padding:5vh 20px 0;
+  }
+  .stars{position:absolute;inset:0;pointer-events:none}
+  .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.7;animation:tw 4s infinite ease-in-out}
+  @keyframes tw{0%,100%{opacity:.25}50%{opacity:.9}}
+  .portrait{width:clamp(200px,24vh,280px);aspect-ratio:4/5;margin:0 auto 22px;border-radius:50% 50% 6px 6px/40% 40% 6px 6px;overflow:hidden;
+    border:5px solid #e3c47c;box-shadow:0 0 0 2px rgba(255,235,180,.35),0 0 60px rgba(255,200,110,.35),0 12px 30px rgba(0,0,0,.5)}
+  .portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+  .hero-title{position:relative;z-index:3;color:#f5e7c4;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  .hero-title .he-name{font-family:"Frank Ruhl Libre",serif;font-size:clamp(40px,6vw,76px);font-weight:500;line-height:1.1;color:#f3dfa8}
+  .hero-title .en-name{font-family:"Cinzel",serif;font-size:clamp(24px,3.4vw,42px);letter-spacing:.14em;margin-top:6px}
+  .hero-title .sub{font-style:italic;font-size:clamp(18px,2.2vw,26px);opacity:.92;margin-top:14px}
+  .hero-title .dates{font-family:"Cinzel",serif;letter-spacing:.2em;font-size:15px;margin-top:18px;opacity:.85}
+  .rule{width:200px;height:1px;margin:14px auto;background:linear-gradient(90deg,transparent,#e9cf8a,transparent)}
+  .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;z-index:2;display:block}
+  .scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:4;color:#4a3519;font-family:"Cinzel";font-size:13px;letter-spacing:.25em;text-decoration:none;opacity:.8}
+
+  /* ---------- Jerusalem stone sections ---------- */
+  .stone{
+    position:relative;
+    background-color:var(--stone);
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .15  0 0 0 .55 0'/></filter><rect width='300' height='300' filter='url(%23n)' opacity='.55'/></svg>"),
+      linear-gradient(90deg, rgba(120,90,50,.28) 2px, transparent 2px),
+      linear-gradient(0deg, rgba(120,90,50,.32) 2px, transparent 2px),
+      linear-gradient(180deg,var(--stone-light),var(--stone) 60%,var(--stone-dark));
+    background-size:300px 300px, 220px 110px, 220px 110px, 100% 100%;
+  }
+  /* staggered courses of ashlar blocks */
+  .stone::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(90deg, rgba(120,90,50,.28) 2px, transparent 2px);
+    background-size:220px 220px; background-position:110px 110px;
+    -webkit-mask:repeating-linear-gradient(180deg,transparent 0 110px,#000 110px 220px);
+            mask:repeating-linear-gradient(180deg,transparent 0 110px,#000 110px 220px);
+  }
+  .wrap{position:relative;max-width:1080px;margin:0 auto;padding:90px 24px}
+  .panel{
+    background:rgba(250,242,222,.93); border:1px solid rgba(150,115,60,.45);
+    box-shadow:0 10px 40px rgba(60,40,10,.25), inset 0 0 0 6px rgba(255,255,255,.35);
+    border-radius:4px; padding:56px clamp(22px,5vw,64px);
+  }
+  h2{font-family:"Cinzel",serif;font-weight:600;letter-spacing:.16em;text-align:center;font-size:clamp(22px,3vw,30px);color:var(--ink)}
+  h2 + .he{display:block;text-align:center;font-size:22px;color:var(--ink-soft);margin-top:4px}
+  .ornament{display:block;margin:20px auto 34px;width:220px;height:22px}
+
+  /* ---------- Candle ---------- */
+  .candle-section{text-align:center}
+  .candle-stage{display:flex;justify-content:center;margin:10px 0 20px}
+  .yahrzeit{position:relative;width:150px;height:300px;cursor:pointer}
+  .glow{position:absolute;left:50%;top:40px;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;
+        background:radial-gradient(circle,rgba(255,200,90,.55) 0%,rgba(255,170,60,.18) 35%,transparent 65%);opacity:0;transition:opacity 2.2s ease;pointer-events:none}
+  .glass{position:absolute;bottom:0;left:15px;width:120px;height:190px;border-radius:8px 8px 14px 14px;
+         background:linear-gradient(90deg,rgba(255,255,255,.35),rgba(255,255,255,.08) 30%,rgba(255,255,255,.04) 70%,rgba(255,255,255,.3));
+         border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 0 20px rgba(255,255,255,.25),0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+  .wax{position:absolute;bottom:0;left:0;right:0;height:150px;background:linear-gradient(180deg,#fbf6ea,#efe4c8);}
+  .wax::after{content:"";position:absolute;left:10%;right:10%;top:-6px;height:12px;border-radius:50%;background:#fffaf0}
+  .label{position:absolute;bottom:40px;left:0;right:0;font-family:"Frank Ruhl Libre";font-size:15px;color:#7a5c2c;line-height:1.3}
+  .wick{position:absolute;left:73px;bottom:150px;width:4px;height:18px;background:#2b2116;border-radius:2px;z-index:2}
+  .flame{position:absolute;left:75px;bottom:162px;width:30px;height:68px;transform:translateX(-50%) scale(0);transform-origin:50% 100%;
+         border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+         background:radial-gradient(ellipse at 50% 80%,#fff 0%,#fff6c9 18%,#ffd36b 40%,#ff9a2e 70%,rgba(255,90,20,.0) 100%);
+         filter:blur(.6px);box-shadow:0 0 30px 10px rgba(255,190,80,.45);transition:transform 1.6s cubic-bezier(.2,.8,.2,1);z-index:3}
+  .flame::before{content:"";position:absolute;left:50%;bottom:6px;width:10px;height:22px;transform:translateX(-50%);border-radius:50%;background:rgba(80,120,255,.55);filter:blur(2px)}
+  .lit .flame{transform:translateX(-50%) scale(1);animation:flicker 2.8s infinite ease-in-out 1.6s}
+  .lit .glow{opacity:1;animation:pulse 3s infinite ease-in-out 2s}
+  @keyframes flicker{
+    0%,100%{transform:translateX(-50%) scale(1) rotate(-1deg)}
+    25%{transform:translateX(-50%) scale(1.04,.96) rotate(1.5deg)}
+    50%{transform:translateX(-50%) scale(.97,1.05) rotate(-2deg)}
+    75%{transform:translateX(-50%) scale(1.02,.98) rotate(1deg)}
+  }
+  @keyframes pulse{0%,100%{opacity:.9}50%{opacity:1}}
+  .candle-dark{background:linear-gradient(180deg,#1a1830,#2b2440);border-radius:6px;padding:50px 20px 40px;transition:background 2s}
+  .candle-dark.lit-bg{background:linear-gradient(180deg,#2a2033,#4a3424)}
+  .candle-dark p{color:#f2e3bf}
+  .btn{font-family:"Cinzel",serif;letter-spacing:.14em;font-size:15px;padding:13px 28px;border-radius:40px;cursor:pointer;
+       border:1px solid #d6b56a;background:linear-gradient(180deg,#e6c77a,#b88f3c);color:#2c1d08;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .btn:hover{filter:brightness(1.07)}
+  .btn.ghost{background:transparent;color:#f2e3bf;border-color:rgba(242,227,191,.5)}
+  .verse{font-size:26px;margin-top:22px;color:#f3dfa8}
+  .verse-en{font-style:italic;font-size:19px;opacity:.85}
+
+  .small-candles{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 10px;margin:34px auto 10px;max-width:880px}
+  .sc{position:relative;width:110px;height:160px;cursor:pointer}
+  .sc .nm{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#f2e3bf;font-size:15px;line-height:1.15;opacity:.75;transition:opacity 1s}
+  .sc.on .nm{opacity:1;color:#ffe7a8}
+  .sc .body{position:absolute;bottom:42px;left:41px;width:28px;height:70px;border-radius:3px;background:linear-gradient(90deg,#efe3c4,#fffaf0 45%,#e3d4ad)}
+  .sc .w{position:absolute;left:54px;bottom:112px;width:2px;height:8px;background:#2b2116}
+  .sc .f{position:absolute;left:55px;bottom:118px;width:14px;height:30px;transform:translateX(-50%) scale(0);transform-origin:50% 100%;
+         border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+         background:radial-gradient(ellipse at 50% 80%,#fff 0%,#ffe9a0 25%,#ffb347 60%,rgba(255,100,20,0) 100%);
+         box-shadow:0 0 18px 6px rgba(255,190,80,.4);transition:transform 1s}
+  .sc.on .f{transform:translateX(-50%) scale(1);animation:flicker 2.2s infinite ease-in-out}
+  .sc-note{color:#e8d6ac;font-size:17px;font-style:italic}
+
+  /* ---------- Gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:26px}
+  .photo{background:#fbf7ee;padding:12px 12px 14px;box-shadow:0 8px 24px rgba(60,40,10,.3);border:1px solid #e3d5b4}
+  .photo img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.08)}
+  .photo .frame{overflow:hidden;aspect-ratio:4/5}
+  .photo.wide .frame{aspect-ratio:3/2}
+  .photo figcaption{font-style:italic;text-align:center;font-size:17px;color:var(--ink-soft);margin-top:10px}
+  .full{grid-column:1 / span 6}
+  .full .frame{aspect-ratio:3/2}
+  .half{grid-column:span 3}
+  .mid{grid-column:2 / span 4}
+  .photo:nth-child(odd){transform:rotate(-.6deg)} .photo:nth-child(even){transform:rotate(.6deg)}
+
+  /* ---------- Eulogy ---------- */
+  .eulogy p{margin:0 0 1.05em}
+  .eulogy .open{font-family:"Cinzel",serif;font-size:28px;letter-spacing:.06em;margin-bottom:.6em;text-align:center}
+  .eulogy .close{text-align:center;font-style:italic;font-size:24px;margin-top:1.4em}
+  .eulogy-he{margin-top:50px;padding-top:40px;border-top:1px solid rgba(150,115,60,.35);font-size:21px;line-height:1.85}
+  .eulogy-he p{margin:0 0 1em}
+  .eulogy-he .open{font-size:30px;text-align:center;font-weight:700}
+  .attrib{text-align:center;font-family:"Cinzel";letter-spacing:.14em;font-size:14px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px}
+
+  /* ---------- Footer ---------- */
+  footer{background:linear-gradient(180deg,#2a1e12,#120c06);color:#e9d7ad;text-align:center;padding:70px 20px 80px}
+  footer .tnzbh{font-family:"Frank Ruhl Libre";font-size:40px;letter-spacing:.15em;color:#e6c77a}
+  footer p{margin-top:10px;font-style:italic;font-size:20px}
+
+  .fs-btn{position:fixed;top:14px;right:14px;z-index:50;font-size:12px;padding:9px 16px;opacity:.75}
+  .fs-btn:hover{opacity:1}
+
+  @media (max-width:760px){
+    .gallery{grid-template-columns:1fr}
+    .full,.half,.mid{grid-column:auto}
+    body{font-size:19px}
+  }
+</style>
+</head>
+<body>
+
+<button class="btn ghost fs-btn" id="fsBtn" type="button">Full Screen</button>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-title">
+    <div class="portrait"><img src="img/portrait.jpg" alt="Moshe Yeffet, smiling, in a houndstooth jacket and kippah"></div>
+    <div class="he-name he">משה יפת ז״ל</div>
+    <div class="en-name">MOSHE YEFFET</div>
+    <div class="rule"></div>
+    <div class="sub">"Moshe from the Rondo" &middot; A true Jerusalem legend</div>
+    <div class="dates">JERUSALEM &middot; NOVEMBER 14, 2026</div>
+  </div>
+
+  <!-- Old City skyline in Jerusalem stone -->
+  <svg class="skyline" viewBox="0 0 1600 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e7c88f"/><stop offset=".55" stop-color="#cfa96c"/><stop offset="1" stop-color="#a98450"/>
+      </linearGradient>
+      <linearGradient id="farG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#b98e66"/><stop offset="1" stop-color="#8e6a4c"/>
+      </linearGradient>
+      <linearGradient id="domeG" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#9aa3a8"/><stop offset=".45" stop-color="#dfe3e2"/><stop offset="1" stop-color="#7d868c"/>
+      </linearGradient>
+      <pattern id="blocks" width="60" height="26" patternUnits="userSpaceOnUse">
+        <rect width="60" height="26" fill="none"/>
+        <path d="M0 26H60M0 13H60M30 0V13M0 13V26M60 13V26" stroke="#8d6a3c" stroke-opacity=".35" stroke-width="1.2"/>
+      </pattern>
+      <radialGradient id="lamp"><stop offset="0" stop-color="#fff2c0"/><stop offset="1" stop-color="#ffcc66" stop-opacity="0"/></radialGradient>
+    </defs>
+
+    <!-- far hills / houses -->
+    <path fill="url(#farG)" opacity=".75" d="M0 330 L60 318 L60 300 L110 300 L110 312 L170 306 L170 290 L230 290 L230 304 L300 296 L300 280 L340 280 L340 296 L420 292 L470 286 L470 270 L520 270 L520 288 L600 282 L680 290 L760 284 L760 268 L800 268 L800 282 L880 280 L960 288 L1040 280 L1040 262 L1090 262 L1090 280 L1170 284 L1240 276 L1240 260 L1290 260 L1290 278 L1370 284 L1450 280 L1450 266 L1500 266 L1500 284 L1600 290 L1600 520 L0 520Z"/>
+
+    <!-- cypress trees -->
+    <g fill="#3f4a2c" opacity=".9">
+      <path d="M150 340 C140 300 145 250 155 220 C165 250 170 300 160 340Z"/>
+      <path d="M185 345 C177 310 180 270 188 245 C196 270 199 310 192 345Z"/>
+      <path d="M1420 340 C1410 300 1415 255 1425 225 C1435 255 1440 300 1430 340Z"/>
+      <path d="M1455 346 C1448 315 1450 280 1457 258 C1464 280 1466 315 1460 346Z"/>
+    </g>
+
+    <!-- Hurva-style dome behind walls -->
+    <g>
+      <rect x="1010" y="215" width="120" height="90" fill="url(#wallG)"/>
+      <rect x="1010" y="215" width="120" height="90" fill="url(#blocks)"/>
+      <path d="M1000 218 Q1070 110 1140 218Z" fill="url(#wallG)"/>
+      <path d="M1022 214 Q1070 125 1118 214" fill="none" stroke="#a98450" stroke-width="2"/>
+      <rect x="1064" y="128" width="12" height="14" fill="#cfa96c"/>
+      <g fill="#6b4a25" opacity=".7"><rect x="1030" y="240" width="10" height="30" rx="5"/><rect x="1065" y="240" width="10" height="30" rx="5"/><rect x="1100" y="240" width="10" height="30" rx="5"/></g>
+    </g>
+
+    <!-- silver dome -->
+    <g>
+      <rect x="560" y="236" width="90" height="70" fill="url(#wallG)"/>
+      <path d="M552 240 Q605 165 658 240Z" fill="url(#domeG)"/>
+    </g>
+
+    <!-- Tower of David (Citadel minaret-like tower) -->
+    <g>
+      <rect x="300" y="200" width="56" height="140" fill="url(#wallG)"/>
+      <rect x="300" y="200" width="56" height="140" fill="url(#blocks)"/>
+      <rect x="292" y="196" width="72" height="10" fill="#d9b77c"/>
+      <rect x="306" y="140" width="44" height="58" fill="url(#wallG)"/>
+      <rect x="300" y="136" width="56" height="8" fill="#d9b77c"/>
+      <rect x="312" y="100" width="32" height="38" fill="url(#wallG)"/>
+      <path d="M308 102 L328 70 L348 102Z" fill="#c9a46a"/>
+      <rect x="326" y="55" width="4" height="18" fill="#b08a55"/>
+      <g fill="#6b4a25" opacity=".75"><rect x="322" y="152" width="6" height="18" rx="3"/><rect x="332" y="152" width="6" height="18" rx="3"/><rect x="324" y="112" width="8" height="14" rx="4"/></g>
+    </g>
+
+    <!-- main Old City wall with crenellations -->
+    <g>
+      <path fill="url(#wallG)" d="M0 360 L0 330 L1600 330 L1600 360Z"/>
+      <rect x="0" y="330" width="1600" height="190" fill="url(#wallG)"/>
+      <rect x="0" y="330" width="1600" height="190" fill="url(#blocks)"/>
+      <g fill="url(#wallG)" id="cren"></g>
+      <!-- towers along wall -->
+      <g>
+        <rect x="80" y="296" width="110" height="224" fill="url(#wallG)"/><rect x="80" y="296" width="110" height="224" fill="url(#blocks)"/>
+        <rect x="430" y="300" width="100" height="220" fill="url(#wallG)"/><rect x="430" y="300" width="100" height="220" fill="url(#blocks)"/>
+        <rect x="1250" y="296" width="110" height="224" fill="url(#wallG)"/><rect x="1250" y="296" width="110" height="224" fill="url(#blocks)"/>
+      </g>
+      <!-- Gate (Jaffa / Zion style) -->
+      <g>
+        <rect x="720" y="282" width="200" height="238" fill="url(#wallG)"/>
+        <rect x="720" y="282" width="200" height="238" fill="url(#blocks)"/>
+        <path d="M770 520 L770 420 Q820 350 870 420 L870 520Z" fill="#3a2614"/>
+        <path d="M762 520 L762 418 Q820 336 878 418 L878 520" fill="none" stroke="#efd9a6" stroke-width="5"/>
+        <circle cx="820" cy="455" r="70" fill="url(#lamp)" opacity=".55"/>
+        <rect x="788" y="318" width="64" height="18" fill="#b88f55" opacity=".6"/>
+      </g>
+      <!-- arrow slits -->
+      <g fill="#6b4a25" opacity=".65">
+        <rect x="128" y="350" width="8" height="26" rx="4"/><rect x="474" y="352" width="8" height="26" rx="4"/>
+        <rect x="1298" y="350" width="8" height="26" rx="4"/><rect x="260" y="380" width="6" height="20" rx="3"/>
+        <rect x="620" y="380" width="6" height="20" rx="3"/><rect x="1020" y="380" width="6" height="20" rx="3"/>
+        <rect x="1160" y="380" width="6" height="20" rx="3"/><rect x="1480" y="380" width="6" height="20" rx="3"/>
+      </g>
+      <!-- warm wall lights -->
+      <g>
+        <circle cx="300" cy="470" r="60" fill="url(#lamp)" opacity=".35"/>
+        <circle cx="1100" cy="470" r="70" fill="url(#lamp)" opacity=".35"/>
+        <circle cx="1500" cy="470" r="55" fill="url(#lamp)" opacity=".3"/>
+      </g>
+    </g>
+  </svg>
+</header>
+
+<!-- ================= EULOGY ================= -->
+<section class="stone">
+  <div class="wrap">
+    <div class="panel eulogy">
+      <h2>WORDS SPOKEN AT HIS GRAVESIDE</h2>
+      <span class="he">הספד</span>
+      <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
+      <p class="attrib">SHARED BY HIS NIECE &middot; HAR HAMENUCHOT, JERUSALEM</p>
+
+      <p class="open">Our Uncle Moshe!</p>
+      <p>A dear man, beloved by everyone!</p>
+      <p>How lucky we are that you were a friend of our father's and introduced him to your sister, our mother. Thanks to you, they became a couple and built a wonderful family. For that, we will be grateful to you for the rest of our lives.</p>
+      <p>Our Uncle Moshe, wherever you went, you brought light and joy. You were a magnet; everyone sought you out and wanted to be in your company. We always looked forward to seeing you, to hearing your stories from "back in the day." You knew how to spice up a tale, and listening to you was always fascinating and intriguing. There isn't a single person in Jerusalem who doesn't know Moshe Yeffet.</p>
+      <p>We always used to boast that our uncle was "Moshe from the Rondo," a true Jerusalem legend.</p>
+      <p>Our children would wait for Uncle Moshe to arrive and ask for a whiskey or an Arak with ice; the moment the glass was empty, it would, as if by magic, refill itself. They would watch you and listen to you with such wonder and deep affection, never wanting those visits to end.</p>
+      <p>If anyone needed help, with anything at all, we knew that Moshe would find a solution.</p>
+      <p>You meant the world to our mother; the bond between you two as siblings was truly special, the kind that makes others envious. Unconditional love.</p>
+      <p>Our Moshe, you will always remain in our hearts: beloved, funny, handsome, wise, and one of a kind. There is no one else like you! Now the time has come for you to join all our loved ones who are no longer with us... Give kisses to our father, your best friend...</p>
+      <p class="close">Rest in peace.</p>
+
+      <div class="eulogy-he he" lang="he">
+        <p class="open">דוד משה שלנו!</p>
+        <p>איש יקר ואהוב על כולם!</p>
+        <p>איזה מזל יש לנו שהיית חבר של אבא שלנו והכרת לו את אחותך, אמא שלנו. בזכותך הפכו לזוג והקימו משפחה לתפארת. על זה נודה לך כל חיינו.</p>
+        <p>דוד משה שלנו, לכל מקום שהגעת הבאת איתך אור ושמחה. היית מגנט, כולם חיפשו ורצו להיות בחברתך. היינו מחכים לפגישות איתך, לשמוע ממך סיפורים של פעם.. היית מתבל את הסיפורים, תמיד היה מעניין ומסקרן לשמוע אותך. אין ירושלמי שלא מכיר את משה יפת.</p>
+        <p>היינו תמיד משוויצות שדוד שלנו זה משה מהרונדו, מירושלים של זהב, תמיד זה היה שם דבר.</p>
+        <p>הילדים שלנו היו מחכים שדוד משה יבוא, יבקש ויסקי או ארק עם קרח, איך שהכוסית נגמרת, בלי מילים היא מתמלאה מאליה.. היו מסתכלים עלייך ומקשיבים לך בהתפעלות ובהמון אהבה, לא רוצים שהמפגשים איתך יסתיימו.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CANDLE ================= -->
+<section class="stone" id="candle">
+  <div class="wrap">
+    <div class="panel candle-section">
+      <h2>A CANDLE FOR MOSHE</h2>
+      <span class="he">נר נשמה</span>
+      <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
+
+      <div class="candle-dark" id="candleBox">
+        <div class="candle-stage">
+          <div class="yahrzeit" id="yahrzeit" role="button" aria-label="Light the memorial candle" tabindex="0">
+            <div class="glow"></div>
+            <div class="glass"><div class="wax"></div><div class="label he">לעילוי נשמת<br>משה יפת ז״ל</div></div>
+            <div class="wick"></div>
+            <div class="flame"></div>
+          </div>
+        </div>
+        <button class="btn" id="lightBtn" type="button">Light the Candle</button>
+        <p class="verse he">נֵר ה׳ נִשְׁמַת אָדָם</p>
+        <p class="verse-en">"The soul of man is the candle of God." Proverbs 20:27</p>
+
+        <div class="small-candles" id="smallCandles"></div>
+        <p class="sc-note">One candle for each of us gathered tonight. Click your candle as you share your words.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHOTOS ================= -->
+<section class="stone">
+  <div class="wrap">
+    <div class="panel">
+      <h2>REMEMBERING MOSHE</h2>
+      <span class="he">זכרונות</span>
+      <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
+      <div class="gallery">
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 50%" src="img/p2.jpg" alt="Family together at night overlooking the walls of the Old City of Jerusalem"></div><figcaption>An evening together above the walls of the Old City</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 30%" src="img/p1.jpg" alt="Moshe smiling with a young relative hugging him at a cafe"></div><figcaption>Surrounded by love</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 0%" src="img/p4.jpg" alt="Two men embracing and laughing"></div><figcaption>Always the life of the room</figcaption></figure>
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 35%" src="img/n1.jpg" alt="Moshe sipping a drink at a cafe table beside a smiling young woman"></div><figcaption>A cold drink and good company</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n3.jpg" alt="Moshe seated at a table, smiling down at a case on his lap"></div><figcaption>Settling in at the table</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n5.jpg" alt="Moshe smiling at a table beside a bottle of whisky"></div><figcaption>"A whiskey, please"</figcaption></figure>
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 40%" src="img/p5.jpg" alt="Vintage black and white photograph of four men arm in arm"></div><figcaption>Back in the day</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n6.jpg" alt="Vintage color photograph of Moshe with two friends in front of palm leaf wallpaper"></div><figcaption>The good old days</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n7.jpg" alt="Vintage color photograph of Moshe with two young women, one holding a telephone"></div><figcaption>Never without a smile</figcaption></figure>
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 55%" src="img/n2.jpg" alt="A group gathered together in a restaurant kitchen"></div><figcaption>Good friends, good food</figcaption></figure>
+        <figure class="photo mid"><div class="frame"><img style="object-position:50% 60%" src="img/n4.jpg" alt="A glass of arak, cloudy white with ice water"></div><figcaption>Arak with ice, just the way he liked it</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tnzbh">ת.נ.צ.ב.ה</div>
+  <p>May his soul be bound up in the bond of eternal life.</p>
+  <p style="font-size:17px;opacity:.75;margin-top:18px">זכרונו לברכה &middot; May his memory be a blessing</p>
+</footer>
+
+<script>
+  // stars
+  (function(){
+    const s=document.getElementById('stars');
+    for(let i=0;i<90;i++){
+      const e=document.createElement('i');
+      e.style.left=Math.random()*100+'%'; e.style.top=Math.random()*55+'%';
+      e.style.animationDelay=(Math.random()*4)+'s';
+      if(Math.random()<.15){e.style.width=e.style.height='3px'}
+      s.appendChild(e);
+    }
+  })();
+
+  // crenellations along the wall
+  (function(){
+    const g=document.getElementById('cren'); const ns='http://www.w3.org/2000/svg';
+    for(let x=0;x<1600;x+=36){
+      const r=document.createElementNS(ns,'rect');
+      r.setAttribute('x',x); r.setAttribute('y',314); r.setAttribute('width',22); r.setAttribute('height',18);
+      g.appendChild(r);
+    }
+    [[80,190,280],[430,530,284],[1250,1360,280],[720,920,266]].forEach(([a,b,y])=>{
+      for(let x=a;x<b;x+=28){
+        const r=document.createElementNS(ns,'rect');
+        r.setAttribute('x',x); r.setAttribute('y',y); r.setAttribute('width',18); r.setAttribute('height',18);
+        g.appendChild(r);
+      }
+    });
+  })();
+
+  // main candle
+  const y=document.getElementById('yahrzeit'), btn=document.getElementById('lightBtn'), box=document.getElementById('candleBox');
+  function light(){
+    if(y.classList.contains('lit')) return;
+    y.classList.add('lit'); box.classList.add('lit-bg');
+    btn.textContent='The Candle Is Lit'; btn.disabled=true; btn.style.opacity=.85;
+  }
+  y.addEventListener('click',light); btn.addEventListener('click',light);
+  y.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();light();}});
+
+  // one small candle for each person gathered
+  const sc=document.getElementById('smallCandles');
+  const names=['Shlomi Gudai','Galia Movitz','Ruthie Gudai','Steve Roufa','Debbie Gudai','Jessica Toledano','Micah Roufa','Taliya Bashani','Jonathan Gudai','Aimee LeWinter','David Gudai','Daniel Movitz','Michael (Eitan) Norsoph','David Norsoph','Jeremy Toledano','Mor Shoemaker'];
+  names.forEach(n=>{
+    const d=document.createElement('div'); d.className='sc'; d.setAttribute('role','button'); d.setAttribute('tabindex','0');
+    d.setAttribute('aria-label','Light the candle for '+n);
+    d.innerHTML='<div class="body"></div><div class="w"></div><div class="f"></div><div class="nm">'+n.replace(' ','<br>')+'</div>';
+    const t=()=>d.classList.toggle('on');
+    d.addEventListener('click',t);
+    d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+    sc.appendChild(d);
+  });
+
+  // full screen for screen sharing on Zoom
+  document.getElementById('fsBtn').addEventListener('click',async()=>{
+    try{
+      if(!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    }catch(e){ document.getElementById('fsBtn').style.display='none'; }
+  });
+</script>
+</body>
+</html>
