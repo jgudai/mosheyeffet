@@ -6,17 +6,18 @@
 <title>In Loving Memory of Moshe Yeffet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --stone:#d9c49a; --stone-light:#ecdcb8; --stone-dark:#b39869;
-    --ink:#3b2a17; --ink-soft:#5c4528; --gold:#c9a24a; --night:#0f1630;
+    --ink:#1e150b; --ink-soft:#3b2b17; --gold:#c9a24a; --night:#0f1630;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Cormorant Garamond",Georgia,serif; color:var(--ink);
-    background:var(--night); line-height:1.6; font-size:20px;
+    font-family:"Source Serif 4",Georgia,serif; color:var(--ink);
+    background:var(--night); line-height:1.65; font-size:19px;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
   .he{font-family:"Frank Ruhl Libre",serif;direction:rtl}
 
@@ -38,7 +39,7 @@
   .hero-title{position:relative;z-index:3;color:#f5e7c4;text-shadow:0 2px 18px rgba(0,0,0,.6)}
   .hero-title .he-name{font-family:"Frank Ruhl Libre",serif;font-size:clamp(40px,6vw,76px);font-weight:500;line-height:1.1;color:#f3dfa8}
   .hero-title .en-name{font-family:"Cinzel",serif;font-size:clamp(24px,3.4vw,42px);letter-spacing:.14em;margin-top:6px}
-  .hero-title .sub{font-style:italic;font-size:clamp(18px,2.2vw,26px);opacity:.92;margin-top:14px}
+  .hero-title .sub{font-style:italic;font-size:clamp(17px,2vw,23px);opacity:.92;margin-top:14px}
   .hero-title .dates{font-family:"Cinzel",serif;letter-spacing:.2em;font-size:15px;margin-top:18px;opacity:.85}
   .rule{width:200px;height:1px;margin:14px auto;background:linear-gradient(90deg,transparent,#e9cf8a,transparent)}
   .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;z-index:2;display:block}
@@ -65,7 +66,7 @@
   }
   .wrap{position:relative;max-width:1080px;margin:0 auto;padding:90px 24px}
   .panel{
-    background:rgba(250,242,222,.93); border:1px solid rgba(150,115,60,.45);
+    background:rgba(252,247,234,.97); border:1px solid rgba(150,115,60,.45);
     box-shadow:0 10px 40px rgba(60,40,10,.25), inset 0 0 0 6px rgba(255,255,255,.35);
     border-radius:4px; padding:56px clamp(22px,5vw,64px);
   }
@@ -108,7 +109,7 @@
   .btn:hover{filter:brightness(1.07)}
   .btn.ghost{background:transparent;color:#f2e3bf;border-color:rgba(242,227,191,.5)}
   .verse{font-size:26px;margin-top:22px;color:#f3dfa8}
-  .verse-en{font-style:italic;font-size:19px;opacity:.85}
+  .verse-en{font-style:italic;font-size:17px;opacity:.92}
 
   .small-candles{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 10px;margin:34px auto 10px;max-width:880px}
   .sc{position:relative;width:110px;height:160px;cursor:pointer}
@@ -121,7 +122,7 @@
          background:radial-gradient(ellipse at 50% 80%,#fff 0%,#ffe9a0 25%,#ffb347 60%,rgba(255,100,20,0) 100%);
          box-shadow:0 0 18px 6px rgba(255,190,80,.4);transition:transform 1s}
   .sc.on .f{transform:translateX(-50%) scale(1);animation:flicker 2.2s infinite ease-in-out}
-  .sc-note{color:#e8d6ac;font-size:17px;font-style:italic}
+  .sc-note{color:#efe0bd;font-size:16px;font-style:italic}
 
   /* ---------- Gallery ---------- */
   .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:26px}
@@ -129,7 +130,7 @@
   .photo img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.08)}
   .photo .frame{overflow:hidden;aspect-ratio:4/5}
   .photo.wide .frame{aspect-ratio:3/2}
-  .photo figcaption{font-style:italic;text-align:center;font-size:17px;color:var(--ink-soft);margin-top:10px}
+  .photo figcaption{font-style:italic;text-align:center;font-size:16px;color:var(--ink-soft);margin-top:10px}
   .full{grid-column:1 / span 6}
   .full .frame{aspect-ratio:3/2}
   .half{grid-column:span 3}
@@ -140,11 +141,11 @@
   /* ---------- Eulogy ---------- */
   .eulogy p{margin:0 0 1.05em}
   .eulogy .open{font-family:"Cinzel",serif;font-size:28px;letter-spacing:.06em;margin-bottom:.6em;text-align:center}
-  .eulogy .close{text-align:center;font-style:italic;font-size:24px;margin-top:1.4em}
+  .eulogy .close{text-align:center;font-style:italic;font-size:21px;margin-top:1.4em}
   .eulogy-he{margin-top:50px;padding-top:40px;border-top:1px solid rgba(150,115,60,.35);font-size:21px;line-height:1.85}
   .eulogy-he p{margin:0 0 1em}
   .eulogy-he .open{font-size:30px;text-align:center;font-weight:700}
-  .attrib{text-align:center;font-family:"Cinzel";letter-spacing:.14em;font-size:14px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px}
+  .attrib{text-align:center;font-family:"Cinzel";font-weight:600;letter-spacing:.14em;font-size:14px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px}
 
   /* ---------- Footer ---------- */
   footer.beach{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#f4e6c2;
@@ -153,7 +154,7 @@
   .beach-inner{max-width:720px;padding:46px 40px;border-top:1px solid rgba(233,207,138,.5);border-bottom:1px solid rgba(233,207,138,.5);
     background:radial-gradient(ellipse at center,rgba(10,8,6,.55),rgba(10,8,6,0) 75%)}
   footer .tnzbh{font-family:"Frank Ruhl Libre";font-size:clamp(40px,6vw,64px);letter-spacing:.15em;color:#f0cf7c;text-shadow:0 2px 20px rgba(0,0,0,.7)}
-  footer p{margin-top:10px;font-style:italic;font-size:23px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+  footer p{margin-top:10px;font-style:italic;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
   @media (max-width:760px), (hover:none){footer.beach{background-attachment:scroll,scroll}}
   .credit{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;color:rgba(244,230,194,.55)}
   .hero-nav{position:absolute;top:20px;left:0;right:0;z-index:5;text-align:center;font-family:"Cinzel",serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase}
@@ -165,16 +166,16 @@
        background:transparent;border:1px solid #b89657;color:var(--ink-soft)}
   .tab.active{background:linear-gradient(180deg,#e6c77a,#b88f3c);color:#2c1d08;border-color:#d6b56a}
   .ttitle{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(30px,4vw,42px);letter-spacing:.08em;text-align:center;color:var(--ink)}
-  .tsub{text-align:center;font-style:italic;font-size:22px;color:var(--ink-soft);margin:4px 0 14px}
+  .tsub{text-align:center;font-style:italic;font-size:20px;color:var(--ink-soft);margin:4px 0 14px}
   .tribute{max-width:720px;margin:0 auto}
-  .tribute p{margin:0 0 1.05em;font-size:21px;line-height:1.7}
-  .tribute p.pull{text-align:center;font-style:italic;font-size:26px;color:#6b4a22;margin:1.2em 0}
-  .tribute p.closing{text-align:center;font-style:italic;font-size:24px}
+  .tribute p{margin:0 0 1.05em;font-size:19px;line-height:1.75}
+  .tribute p.pull{text-align:center;font-style:italic;font-size:23px;color:#4a3216;margin:1.2em 0}
+  .tribute p.closing{text-align:center;font-style:italic;font-size:21px}
   .tribute .more{margin-top:0}
   .readmore{text-align:center;margin-top:24px}
   .tfig{margin:34px auto;background:#fbf7ee;padding:12px 12px 14px;box-shadow:0 8px 24px rgba(60,40,10,.28);border:1px solid #e3d5b4}
   .tfig img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-  .tfig figcaption{font-style:italic;text-align:center;font-size:17px;color:var(--ink-soft);margin-top:10px}
+  .tfig figcaption{font-style:italic;text-align:center;font-size:16px;color:var(--ink-soft);margin-top:10px}
   .tfig.narrow{max-width:380px}
   .tfig.square{max-width:460px}.tfig.square img{aspect-ratio:1/1}
   .tfig.wide img{aspect-ratio:3/2}
