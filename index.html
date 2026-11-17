@@ -193,6 +193,47 @@
     .full,.half,.mid{grid-column:auto}
     body{font-size:19px}
   }
+
+/* ===== media ===== */
+.listens{display:flex;flex-wrap:wrap;gap:10px;margin:-.2em 0 1.4em}
+.listen{display:inline-flex;align-items:center;gap:10px;background:rgba(169,132,80,.10);border:1px solid rgba(169,132,80,.45);border-radius:999px;padding:5px 16px 5px 5px;cursor:pointer;font:inherit;color:var(--ink);text-align:left;transition:background .2s,border-color .2s}
+.listen:hover,.listen:focus-visible{background:rgba(169,132,80,.22);border-color:#a98450;outline:none}
+.listen .faces{display:inline-flex}
+.listen .faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #f6eedb;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.listen .faces img+img{margin-left:-14px}
+.listen .ltxt{display:flex;flex-direction:column;font-size:15px;line-height:1.25;font-weight:600}
+.listen .lplay{color:#8a5a1c;font-size:12px;margin-right:3px}
+.listen .ldur{font-weight:400;font-style:italic;font-size:13.5px;color:var(--ink-soft)}
+.moments{align-items:start;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;margin-top:22px}
+.mcard{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;background:none;border:0;padding:0;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;border-radius:6px;overflow:hidden;border:1px solid rgba(169,132,80,.5);box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.mcard:hover .mthumb img,.mcard:focus-visible .mthumb img{transform:scale(1.04)}
+.mplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(30,21,11,.62);color:#f6e7c4;display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px;border:1px solid rgba(246,231,196,.6)}
+.mdur{position:absolute;right:6px;bottom:6px;background:rgba(30,21,11,.72);color:#f6e7c4;font-size:12.5px;padding:1px 7px;border-radius:3px}
+.mt{display:block;font-weight:600;margin-top:8px;font-size:16px;line-height:1.3}
+.mw{display:block;font-style:italic;font-size:14px;color:var(--ink-soft)}
+.candle-film{margin:26px auto 0;max-width:520px}
+.candle-film .mt,.candle-film .mw{color:#f2e3c2;text-align:center}
+.candle-film .mthumb{border-color:rgba(201,162,74,.6)}
+#player{border:0;padding:0;background:transparent;max-width:min(960px,94vw);width:100%}
+#player::backdrop{background:rgba(12,8,4,.86)}
+.pbox{background:#16100a;border:1px solid rgba(201,162,74,.55);border-radius:8px;overflow:hidden;color:#f2e3c2}
+.pbar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(201,162,74,.25)}
+.pbar .pt{flex:1;min-width:0}
+.pbar .pt b{display:block;font-family:Cinzel,serif;font-weight:600;letter-spacing:.04em;font-size:17px}
+.pbar .pt span{font-style:italic;font-size:14px;opacity:.85}
+.pbtn{background:none;border:1px solid rgba(201,162,74,.6);color:#f2e3c2;border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.pbtn:hover,.pbtn:focus-visible{background:rgba(201,162,74,.18);outline:none}
+.pclose{font-size:22px;line-height:1;padding:2px 11px 4px}
+#pvideo{display:block;width:100%;max-height:72vh;background:#000}
+.paudio{display:none;padding:26px 20px 30px;text-align:center}
+.paudio img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,162,74,.7);margin:0 4px 16px}
+.paudio audio{width:100%;max-width:560px}
+.paudio .cap{min-height:3.2em;margin:14px auto 0;max-width:560px;font-size:17px;line-height:1.5}
+.pbox.audio-mode #pvideo{display:none}
+.pbox.audio-mode .paudio{display:block}
+@media (max-width:600px){.listen .faces img{width:38px;height:38px}.pbar{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -338,22 +379,28 @@
         <p>Because each of us carries a different piece of him.</p>
         <div class="more" id="tributeMore" hidden>
         <p>Shlomi carries the years when they were young, when he was still in the army and helping Moshe get the Rondo started. The long nights together. The visits to America. The chicken wings that had to be part of the itinerary.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="01_Shlomi" data-title="Moshe and I were very close" data-who="Shlomi Gudai"><span class="faces"><img src="media/portraits/Shlomi_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Shlomi tell this story</span><span class="ldur">Moshe and I were very close &middot; 1:12</span></span></button></div>
         <p>Jonathan described the bond between them as the love of a father for a son. And Ruthie remembered its simplest expression: whenever she spoke with Moshe, he wanted to know, “How is Shlomi?”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="33_Jon_LikeASon" data-title="Like a son, a real son" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan</span><span class="ldur">Like a son, a real son &middot; 0:15</span></span></button><button class="listen" type="button" data-clip="17_Ruthie_Shlomi" data-title="How is Shlomi?" data-who="Ruthie Gudai"><span class="faces"><img src="media/portraits/Ruthie_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Ruthie</span><span class="ldur">How is Shlomi? &middot; 0:26</span></span></button></div>
         <p>Across countries and decades, he kept asking. He kept caring.</p>
         <figure class="tfig narrow"><img src="img/p4.jpg" alt="" style="object-position:50% 0%"><figcaption>Like a son</figcaption></figure>
         <p>Galia remembered a man who could make things happen. When she wanted to extend her stay in St. Louis after high school, Moshe helped arrange an extension from the army.</p>
         <p>Ruthie remembered the same influence working in a slightly different direction. She wanted independence. She wanted an army assignment away from home. Her mother spoke to Moshe.</p>
         <p>Ruthie stayed in Jerusalem.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="03_Ruthie" data-title="After Ima talked to Moshe" data-who="Ruthie Gudai"><span class="faces"><img src="media/portraits/Ruthie_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Ruthie tell this story</span><span class="ldur">After Ima talked to Moshe &middot; 0:53</span></span></button></div>
         <p>Two nieces. Two different plans. One very effective uncle.</p>
         <p>That was the thing about Moshe: if you needed help, you could call him. And as Ruthie said, he followed through.</p>
         <p>Sometimes, he followed through on your mother’s request.</p>
         <p>Steve knew this firsthand. After he proposed to Dikla, Moshe flew to St. Louis to meet Steve’s family before she gave him her answer.</p>
         <p>Most people meet the parents. Steve received an international family inspection.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="04_Steve" data-title="The family inspection" data-who="Steve Roufa"><span class="faces"><img src="media/portraits/Steve_Roufa_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Steve tell this story</span><span class="ldur">The family inspection &middot; 1:09</span></span></button></div>
         <p>Moshe stayed with Steve’s mother and father, enjoyed their company, and apparently delivered a favorable report. Steve remembered the care behind it: Moshe wanted his family protected, happy, and in good hands.</p>
         <p>Steve’s verdict was succinct: “A terrific person. I rest my case.”</p>
         <p>He also reminded us to honor the parents who raised Moshe and his siblings. The love we received from him had roots. Now those roots reach through all of us.</p>
         <p>Debbie first met Moshe in Israel in 1977 and remembered being astonished. She had never known anyone who could drink, smoke, laugh, and party quite like him.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="18_Debbie_1977" data-title="Larger than life, 1977" data-who="Debbie Gudai"><span class="faces"><img src="media/portraits/Debbie_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Debbie tell this story</span><span class="ldur">Larger than life, 1977 &middot; 0:36</span></span></button></div>
         <p>She called him “the wickedest good person I knew.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="05_Debbie" data-title="The wickedest good person" data-who="Debbie Gudai"><span class="faces"><img src="media/portraits/Debbie_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Debbie</span><span class="ldur">The wickedest good person &middot; 0:47</span></span></button></div>
         <p>What a description.</p>
         <p>He was completely himself. Real. Unapologetic. And when it mattered, dependable.</p>
         <p class="pull">“He always had Shlomi’s back,” Debbie said. “He had my back. He had my children’s backs.”</p>
@@ -370,6 +417,7 @@
         <p>Shlomi told us how Moshe went to Jerusalem’s mayor, Teddy Kollek, with a vision for a café in the park. That vision became Café Rondo. There would be other venues, other performances, other gatherings. Moshe loved the action. He knew how to get things moving and how to get people through the door.</p>
         <p>Galia put the connection between the man and his place so simply:</p>
         <p class="pull">“The Rondo was Moshe.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="02_Galia" data-title="The Rondo was Moshe" data-who="Galia Movitz"><span class="faces"><img src="media/portraits/Galia_Movitz_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Galia tell this story</span><span class="ldur">The Rondo was Moshe &middot; 0:54</span></span></button></div>
         <p>For us, going to Israel meant going to the Rondo. Galia remembered nights that lasted until five in the morning. Jet lag had very little chance against Uncle Moshe.</p>
         <p>When she returned from America, he made her the cashier.</p>
         <p>“I only trust you with my money,” she remembered him saying.</p>
@@ -382,20 +430,26 @@
         <p>Micah Roufa remembered being twelve, almost thirteen, arriving before his bar mitzvah celebration. Moshe set him up with a Coca-Cola, chips, and hummus.</p>
         <p>To an adult, perhaps a snack.</p>
         <p>To that boy, the full VIP experience.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="06_Micah" data-title="Coca-Cola, chips and hummus" data-who="Micah Roufa"><span class="faces"><img src="media/portraits/Micah_Roufa_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Micah tell this story</span><span class="ldur">Coca-Cola, chips and hummus &middot; 1:09</span></span></button></div>
         <p>Micah remembered feeling like the coolest kid in the world. And he remembered the consistency: every visit, the same warmth, the same energy. Moshe helped teach him something about who he was and where he came from.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="19_Micah_Live" data-title="How to live, how to die" data-who="Micah Roufa"><span class="faces"><img src="media/portraits/Micah_Roufa_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Micah</span><span class="ldur">How to live, how to die &middot; 0:41</span></span></button></div>
         <p>In a family full of people with gifts to offer, Moshe took particular responsibility for showing everyone how to enjoy being alive.</p>
         <p>Tali remembered her own bat mitzvah and the way Moshe rolled out the red carpet. Music, celebration, generosity. Everything laid out for everyone else’s happiness.</p>
         <p>She also remembered arriving in Israel as a child and being dropped off while her mother went to the Rondo.</p>
         <p>There were two problems with this arrangement: her mother was leaving, and her mother was going to the party without her.</p>
         <p>On the occasions Tali got to go, she remembered the music, the smoke, and the unmistakable feeling that something wonderful was happening.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="07_Tali" data-title="A party and a half" data-who="Tali Bashani"><span class="faces"><img src="media/portraits/Tali_Bashani_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Tali tell this story</span><span class="ldur">A party and a half &middot; 0:39</span></span></button></div>
         <p>Years later, Moshe brought that spirit to St. Louis. Milty put a sign on the pool house: “Moshe’s Man Cave.” His visits became a family tradition, including time with his daughter Lauren.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="20_Tali_ManCave" data-title="Moshe&#x27;s Man Cave" data-who="Tali Bashani"><span class="faces"><img src="media/portraits/Tali_Bashani_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Tali</span><span class="ldur">Moshe&#x27;s Man Cave &middot; 0:26</span></span></button></div>
         <p>Tali reminded us that someone who gave that much of himself continues to fill our lives long after his physical presence is gone.</p>
         <p>Aimee remembered him as almost a celebrity. Larger than life, unmistakable, always part of Israel. She remembered that he made a point of seeing her and Ryan during their Birthright trip, and she remembered the family together at Passover.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="08_Aimee" data-title="Almost like a celebrity" data-who="Aimee LeWinter"><span class="faces"><img src="media/portraits/Aimee_LeWinter_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Aimee tell this story</span><span class="ldur">Almost like a celebrity &middot; 1:11</span></span></button></div>
         <p>She also gave us something important that evening: the joy of hearing everyone else’s stories and getting to know him more deeply through them.</p>
         <p>We can still discover more of someone we love. We can give those discoveries to each other.</p>
         <p>David Gudai remembered a man who appeared to be frozen in time. The Moshe in the photographs from the eighties looked remarkably like the Moshe he remembered from the nineties, the two-thousands, and beyond.</p>
         <p>David’s theory was that the Black Label had preserved him.</p>
         <p>Possibly pickled him.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="09_DavidG_Pickled" data-title="Pickled" data-who="David Gudai"><span class="faces"><img src="media/portraits/David_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear David tell this story</span><span class="ldur">Pickled &middot; 0:59</span></span></button></div>
         <p>Galia offered another piece of evidence: Moshe took his grooming seriously. She remembered going with him to the hairdresser. The man intended to look good.</p>
         <p>Between the family theories, we may never settle the science. We can agree that he was handsome, full of laughter, and wonderfully himself.</p>
         <p>Ruthie also remembered his appreciation for women, especially beautiful women. David Gudai admitted he had never quite connected all the dots in the stories of Moshe’s many loves.</p>
@@ -404,12 +458,14 @@
         <p>Even after an evening devoted to his life, Moshe was entitled to a little mystery.</p>
         <p>Jonathan had found the obvious comparison: the world’s most interesting man. Michael supplied the voice for a Johnnie Walker version of the famous line, then announced:</p>
         <p class="pull">“I’ve been training for this moment all of my life.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="23_MostInteresting" data-title="The world&#x27;s most interesting man" data-who="Jonathan Gudai, Michael (Eitan) Norsoph"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"><img src="media/portraits/Michael_Eitan_Norsoph_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan and Michael</span><span class="ldur">The world&#x27;s most interesting man &middot; 0:34</span></span></button></div>
         <p>Moshe would have enjoyed that. The family together, a little whiskey, and somebody getting a good laugh.</p>
         <figure class="tfig square"><img src="img/n5.jpg" alt="" style="object-position:50% 20%"><figcaption>The most interesting man in the world</figcaption></figure>
         <p>David Norsoph carried one very specific memory: Moshe told him he didn’t eat dinner.</p>
         <p>This stayed with David for more than twenty years.</p>
         <p>A man who owned a restaurant. Who loved food. Who fed everybody.</p>
         <p>No dinner.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="10_DavidN" data-title="He doesn&#x27;t eat dinner" data-who="David Norsoph"><span class="faces"><img src="media/portraits/David_Norsoph_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear David tell this story</span><span class="ldur">He doesn&#x27;t eat dinner &middot; 0:51</span></span></button></div>
         <p>The family immediately began discussing lunch, meal times, and what exactly qualified as dinner. Even now, Moshe could get an entire room talking about his daily routine.</p>
         <p>Ruthie remembered his response to dinner invitations: “No, no, no dinner. Let’s go out to lunch.”</p>
         <p>Shlomi explained that lunch was the main event. The nights were for other things.</p>
@@ -419,44 +475,54 @@
         <p>His assignment was to open a glass bottle of Coca-Cola.</p>
         <p>His pay was twenty shekels.</p>
         <p>Daniel felt like a millionaire.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="11_Daniel_20_Shekels" data-title="Twenty shekels" data-who="Daniel Movitz"><span class="faces"><img src="media/portraits/Daniel_Movitz_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Daniel tell this story</span><span class="ldur">Twenty shekels &middot; 0:43</span></span></button></div>
         <p>Moshe understood how to make a child feel capable and important. Years later, when Daniel was in his twenties and trying to work out what to do with his life, Moshe gave him something quieter: time to talk, and someone who listened.</p>
         <p>Behind that enormous personality was a man who could sit beside you and make room for whatever was on your mind.</p>
         <p>Daniel remembered Moshe and Milty together at the Rondo:</p>
         <p class="pull">“Forget about it. That was the coolest place I’ve ever been in my life.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="21_Daniel_Milty" data-title="Moshe and Milty at the Rondo" data-who="Daniel Movitz"><span class="faces"><img src="media/portraits/Daniel_Movitz_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Daniel</span><span class="ldur">Moshe and Milty at the Rondo &middot; 0:33</span></span></button></div>
         <p>Imagine being a boy watching those two. Seeing how much happiness a person could create simply by welcoming people, making them laugh, and making sure they were taken care of.</p>
         <p>Daniel now works in hospitality, helping people feel welcome and have a good time. He recognized Moshe’s influence in that work, alongside his father’s.</p>
         <p>He grew up watching people he loved do it beautifully.</p>
         <p>And he remembered Moshe calling and singing:</p>
         <p class="pull">“I love you so much, Daniel.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="22_Daniel_Listen" data-title="He would listen" data-who="Daniel Movitz"><span class="faces"><img src="media/portraits/Daniel_Movitz_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Daniel</span><span class="ldur">He would listen &middot; 0:49</span></span></button></div>
         <p>At our gathering, Daniel gave those words back to the whole family.</p>
         <p class="pull">“I love you so much.”</p>
         <p>There is a great deal of Moshe in that sentence.</p>
         <p>Jeremy, our JJ, remembered being young at Passover in Shlomi and Debbie’s house and hearing Moshe’s laughter roar through the rooms.</p>
         <p>It was so loud that he briefly wondered whether everything was okay.</p>
         <p>Everything was very much okay. Moshe was there.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="13_Jeremy" data-title="Laughter roaring through the house" data-who="Jeremy Toledano"><span class="faces"><img src="media/portraits/Jeremy_Toledano_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jeremy tell this story</span><span class="ldur">Laughter roaring through the house &middot; 0:28</span></span></button></div>
         <p>How extraordinary, to leave a memory that a younger generation can still hear.</p>
         <p>Jonathan remembered asking Moshe why, in his seventies, he didn’t sell the Rondo and spend his time traveling and enjoying himself.</p>
         <p>Moshe explained how much hosting people meant to him.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="24_Jon_Money" data-title="It was never about the money" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan tell this story</span><span class="ldur">It was never about the money &middot; 0:34</span></span></button></div>
         <p>The pleasure was already there: people arriving, tables filling, someone having a wonderful time because he had made it possible.</p>
         <p>Jonathan remembered it again on his honeymoon with Alex. Their trip would take them to Israel, Italy, and India. Moshe made it clear that whatever their schedule looked like, they were spending time with him.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="27_Jon_Honeymoon" data-title="The honeymoon" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan tell this story</span><span class="ldur">The honeymoon &middot; 0:51</span></span></button></div>
         <p>He took them to Machneyuda, celebrated them over arak in the middle of the day, and made their happiness part of his own.</p>
         <p>He wanted to be with them. He wanted to give them a beautiful memory.</p>
         <p>And he did.</p>
         <div class="tpair"><figure class="tfig "><img src="img/n1.jpg" alt="" style="object-position:50% 35%"><figcaption>Celebrating Jonathan and Alex&#39;s honeymoon, 2014</figcaption></figure><figure class="tfig "><img src="img/n3.jpg" alt="" style="object-position:50% 10%"><figcaption>A gift for the newlyweds</figcaption></figure></div>
         <p class="pull">“What a beautiful.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="25_Jon_Beautiful" data-title="What a beautiful" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan</span><span class="ldur">What a beautiful &middot; 0:26</span></span></button></div>
         <p>Jonathan remembered hearing those words applied to the things Moshe admired, even a telephone. There was something so completely him about it. He saw something that delighted him, and he said so.</p>
         <p>He gave his pleasure a voice.</p>
         <p>He gave his affection a voice, too. We heard it in Daniel’s birthday song, in Ruthie’s memories of his concern for Shlomi, and in the stories of every visit he made and every door he opened.</p>
         <p>At ninety-two, he had given us a lifetime of examples.</p>
         <p>Michael asked us to carry those examples into action. To honor Moshe by opening our homes and our arms. By doing a little more for someone than we might otherwise have done. By letting our children see what that love looks like.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="12_Michael_Honor_in_Action" data-title="Honor them in action" data-who="Michael (Eitan) Norsoph"><span class="faces"><img src="media/portraits/Michael_Eitan_Norsoph_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Michael</span><span class="ldur">Honor them in action &middot; 1:14</span></span></button></div>
         <p>He spoke through tears about the people our family has lost, and about the peace he finds in knowing their memories live inside us.</p>
         <p>Then he asked us to take those memories out into the world.</p>
         <p>To let the people we love continue shaping how we live.</p>
         <p>Ruthie recognized that same spirit in Jonathan bringing us together: a loving thought followed by an action.</p>
         <p>And Galia reminded us what a gift it is to have a family that answers, “Here I am.”</p>
+        <div class="listens"><button class="listen" type="button" data-clip="14_Jonathan_Death" data-title="Death is not the end" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan</span><span class="ldur">Death is not the end &middot; 1:10</span></span></button></div>
         <p>We wished we could all be in Jerusalem. Instead, we found a way to gather from where we were. We heard each other’s voices. We said his name. We lit our candles.</p>
         <p>And for a little while, across all that distance, we were together with him.</p>
         <p>So perhaps this is how we keep him close.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="28_Jon_Heart" data-title="He had a big heart" data-who="Jonathan Gudai"><span class="faces"><img src="media/portraits/Jonathan_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Jonathan</span><span class="ldur">He had a big heart &middot; 1:15</span></span></button></div>
         <p>We make the call. We welcome the guest. We listen when someone is trying to find their way. We make a child feel like a million dollars. We let our laughter fill the house.</p>
         <p>We tell the stories, including the funny ones. Especially the funny ones.</p>
         <p>We give our affection a voice while the people we love are here to hear it.</p>
@@ -464,6 +530,7 @@
         <figure class="tfig feature"><img src="img/drive.jpg" alt="" style="object-position:50% 50%"><figcaption>Moshe at the wheel of his green Mercedes. Photograph by Daniel Movitz</figcaption></figure>
         <p>Debbie looked at that photograph and saw the light.</p>
         <p>“He brought light,” she said.</p>
+        <div class="listens"><button class="listen" type="button" data-clip="26_Mercedes" data-title="The green Mercedes and the light" data-who="Daniel Movitz, Ruthie Gudai, Debbie Gudai"><span class="faces"><img src="media/portraits/Daniel_Movitz_192.webp" alt="" loading="lazy"><img src="media/portraits/Ruthie_Gudai_192.webp" alt="" loading="lazy"><img src="media/portraits/Debbie_Gudai_192.webp" alt="" loading="lazy"></span><span class="ltxt"><span class="lline"><span class="lplay" aria-hidden="true">&#9654;</span> Hear Daniel, Ruthie and Debbie</span><span class="ldur">The green Mercedes and the light &middot; 1:23</span></span></button></div>
         <p>He did.</p>
         <p>To Jerusalem. To the Rondo. To our homes. To our childhoods. To the milestones he helped us celebrate and the ordinary days he made memorable.</p>
         <p class="closing">Dod Moshe, we miss you.</p>
@@ -497,9 +564,28 @@
         <p>הילדים שלנו היו מחכים שדוד משה יבוא, יבקש ויסקי או ארק עם קרח, איך שהכוסית נגמרת, בלי מילים היא מתמלאה מאליה.. היו מסתכלים עלייך ומקשיבים לך בהתפעלות ובהמון אהבה, לא רוצים שהמפגשים איתך יסתיימו.</p>
       </div>
       </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
+
+
+<!-- ================= MOMENTS ================= -->
+<section class="stone" id="moments">
+  <div class="wrap">
+    <div class="panel">
+      <h2>MORE MOMENTS</h2>
+      <span class="he">רגעים מהערב</span>
+      <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
+      <p class="intro" style="text-align:center;font-style:italic">From our family gathering on November 16, 2026. Each clip plays only when you choose it, with captions.</p>
+      <div class="moments">
+        <button class="mcard" type="button" data-clip="30_Jon_Welcome" data-title="Why we gathered" data-who="Jonathan Gudai"><span class="mthumb"><img src="media/posters/30_Jon_Welcome_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">0:35</span></span><span class="mt">Why we gathered</span><span class="mw">Jonathan Gudai</span></button><button class="mcard" type="button" data-clip="31_Jon_Toast" data-title="The Black Label toast" data-who="Jonathan Gudai"><span class="mthumb"><img src="media/posters/31_Jon_Toast_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">0:36</span></span><span class="mt">The Black Label toast</span><span class="mw">Jonathan Gudai</span></button><button class="mcard" type="button" data-clip="32_Jon_Commander" data-title="The commander" data-who="Jonathan Gudai, Shlomi Gudai, Steve Roufa"><span class="mthumb"><img src="media/posters/32_Jon_Commander_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">0:40</span></span><span class="mt">The commander</span><span class="mw">Jonathan Gudai, Shlomi Gudai, Steve Roufa</span></button><button class="mcard" type="button" data-clip="29_Jon_Funkle" data-title="The original funkle" data-who="Jonathan Gudai"><span class="mthumb"><img src="media/posters/29_Jon_Funkle_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">0:45</span></span><span class="mt">The original funkle</span><span class="mw">Jonathan Gudai</span></button><button class="mcard" type="button" data-clip="34_Jon_Love" data-title="How do we show our love" data-who="Jonathan Gudai"><span class="mthumb"><img src="media/posters/34_Jon_Love_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">0:17</span></span><span class="mt">How do we show our love</span><span class="mw">Jonathan Gudai</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= /MOMENTS ================= -->
 
 <!-- ================= CANDLE ================= -->
 <section class="stone" id="candle">
@@ -524,6 +610,7 @@
 
         <div class="small-candles" id="smallCandles"></div>
         <p class="sc-note">One candle for each of us gathered tonight.</p>
+        <div class="candle-film"><button class="mcard" type="button" data-clip="35_Candle_Lighting" data-title="Lighting the candles" data-who="Sixteen candles, one for each of us"><span class="mthumb"><img src="media/posters/35_Candle_Lighting_poster.jpg" alt="" loading="lazy"><span class="mplay" aria-hidden="true">&#9654;</span><span class="mdur">2:40</span></span><span class="mt">Lighting the candles</span><span class="mw">Sixteen candles, one for each of us</span></button></div>
       </div>
     </div>
   </div>
@@ -638,6 +725,40 @@
     rm.textContent=open?'Show less':'Read the full tribute';
     if(!open) document.getElementById('tributes').scrollIntoView({behavior:'smooth'});
   });
+</script>
+<dialog id="player" aria-label="Video player">
+  <div class="pbox" id="pbox">
+    <div class="pbar">
+      <div class="pt"><b id="ptitle"></b><span id="pwho"></span></div>
+      <button class="pbtn" id="pmode" type="button">Listen only</button>
+      <button class="pbtn pclose" id="pclose" type="button" aria-label="Close">&times;</button>
+    </div>
+    <video id="pvideo" controls playsinline preload="none"></video>
+    <div class="paudio"><div id="pfaces"></div><audio id="paudio" controls preload="none"></audio><p class="cap" id="pcap"></p></div>
+  </div>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('player'),box=document.getElementById('pbox'),v=document.getElementById('pvideo'),
+      au=document.getElementById('paudio'),mode=document.getElementById('pmode'),cap=document.getElementById('pcap'),cur=null,audioMode=false;
+  function track(el,id){el.querySelectorAll('track').forEach(function(t){t.remove()});var t=document.createElement('track');
+    t.kind='captions';t.label='English';t.srclang='en';t.src='media/vtt/'+id+'.vtt';t.default=true;el.appendChild(t);
+    t.addEventListener('load',function(){t.track.mode=(el===v?'showing':'hidden')});
+    t.track.mode=(el===v?'showing':'hidden');
+    if(el===au){t.track.oncuechange=function(){var c=t.track.activeCues;cap.textContent=c&&c.length?c[0].text.replace(/<[^>]+>/g,''):''}}}
+  function load(){var id=cur.dataset.clip;
+    if(audioMode){v.pause();au.src='media/audio/'+id+'.m4a';track(au,id);box.classList.add('audio-mode');mode.textContent='Watch video';au.play().catch(function(){})}
+    else{au.pause();v.poster='media/posters/'+id+'_poster.jpg';v.src='media/clips/'+id+'.mp4';track(v,id);box.classList.remove('audio-mode');mode.textContent='Listen only';v.play().catch(function(){})}}
+  function open(btn){cur=btn;document.getElementById('ptitle').textContent=btn.dataset.title;document.getElementById('pwho').textContent=btn.dataset.who;
+    var f=btn.querySelectorAll('.faces img');document.getElementById('pfaces').innerHTML=Array.prototype.map.call(f,function(i){return '<img src="'+i.getAttribute('src')+'" alt="">'}).join('');
+    cap.textContent='';audioMode=false;if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');load()}
+  function close(){v.pause();au.pause();v.removeAttribute('src');au.removeAttribute('src');v.load();au.load();if(dlg.close)dlg.close();else dlg.removeAttribute('open')}
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-clip]');if(b){e.preventDefault();open(b)}});
+  mode.addEventListener('click',function(){audioMode=!audioMode;load()});
+  document.getElementById('pclose').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+  dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
+})();
 </script>
 </body>
 </html>
