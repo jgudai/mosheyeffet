@@ -91,7 +91,7 @@
          background:radial-gradient(ellipse at 50% 80%,#fff 0%,#fff6c9 18%,#ffd36b 40%,#ff9a2e 70%,rgba(255,90,20,.0) 100%);
          filter:blur(.6px);box-shadow:0 0 30px 10px rgba(255,190,80,.45);transition:transform 1.6s cubic-bezier(.2,.8,.2,1);z-index:3}
   .flame::before{content:"";position:absolute;left:50%;bottom:6px;width:10px;height:22px;transform:translateX(-50%);border-radius:50%;background:rgba(80,120,255,.55);filter:blur(2px)}
-  .lit .flame{transform:translateX(-50%) scale(1);animation:flicker 2.8s infinite ease-in-out 1.6s}
+  .lit .flame{transform:translateX(-50%) scale(1);animation:flicker 2.8s infinite ease-in-out}
   .lit .glow{opacity:1;animation:pulse 3s infinite ease-in-out 2s}
   @keyframes flicker{
     0%,100%{transform:translateX(-50%) scale(1) rotate(-1deg)}
@@ -317,21 +317,21 @@
       <span class="he">נר נשמה</span>
       <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
 
-      <div class="candle-dark" id="candleBox">
+      <div class="candle-dark lit-bg" id="candleBox">
         <div class="candle-stage">
-          <div class="yahrzeit" id="yahrzeit" role="button" aria-label="Light the memorial candle" tabindex="0">
+          <div class="yahrzeit lit" id="yahrzeit" role="button" aria-label="Light the memorial candle" tabindex="0">
             <div class="glow"></div>
             <div class="glass"><div class="wax"></div><div class="label he">לעילוי נשמת<br>משה יפת ז״ל</div></div>
             <div class="wick"></div>
             <div class="flame"></div>
           </div>
         </div>
-        <button class="btn" id="lightBtn" type="button">Light the Candle</button>
+        <button class="btn" id="lightBtn" type="button" disabled style="opacity:.85">The Candle Is Lit</button>
         <p class="verse he">נֵר ה׳ נִשְׁמַת אָדָם</p>
         <p class="verse-en">"The soul of man is the candle of God." Proverbs 20:27</p>
 
         <div class="small-candles" id="smallCandles"></div>
-        <p class="sc-note">One candle for each of us gathered tonight. Click your candle as you share your words.</p>
+        <p class="sc-note">One candle for each of us gathered tonight.</p>
       </div>
     </div>
   </div>
@@ -349,14 +349,14 @@
         <figure class="photo half"><div class="frame"><img style="object-position:50% 30%" src="img/p1.jpg" alt="Moshe smiling with a young relative hugging him at a cafe"></div><figcaption>Surrounded by love</figcaption></figure>
         <figure class="photo half"><div class="frame"><img style="object-position:50% 0%" src="img/p4.jpg" alt="Two men embracing and laughing"></div><figcaption>Always the life of the room</figcaption></figure>
         <figure class="photo full"><div class="frame"><img style="object-position:50% 50%" src="img/drive.jpg" alt="View from the driver's seat as Moshe drives through a lit tunnel"></div><figcaption>Behind the wheel, guiding visitors through the Land of Israel</figcaption></figure>
-        <figure class="photo full"><div class="frame"><img style="object-position:50% 35%" src="img/n1.jpg" alt="Moshe sipping a drink at a cafe table beside a smiling young woman"></div><figcaption>A cold drink and good company</figcaption></figure>
-        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n3.jpg" alt="Moshe seated at a table, smiling down at a case on his lap"></div><figcaption>Settling in at the table</figcaption></figure>
-        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n5.jpg" alt="Moshe smiling at a table beside a bottle of whisky"></div><figcaption>"A whiskey, please"</figcaption></figure>
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 35%" src="img/n1.jpg" alt="Moshe sipping a drink at a cafe table beside a smiling young woman"></div><figcaption>Celebrating Jonathan and Alex's honeymoon, 2014</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n3.jpg" alt="Moshe seated at a table, smiling down at a case on his lap"></div><figcaption>A gift for the newlyweds</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n5.jpg" alt="Moshe smiling at a table beside a bottle of whisky"></div><figcaption>The most interesting man in the world, who lived by the motto: "I don't always drink whiskey, but when I do, I prefer Johnnie Walker Black. Stay thirsty, my friends."</figcaption></figure>
         <figure class="photo full"><div class="frame"><img style="object-position:50% 40%" src="img/p5.jpg" alt="Vintage black and white photograph of four men arm in arm"></div><figcaption>Back in the day</figcaption></figure>
-        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n6.jpg" alt="Vintage color photograph of Moshe with two friends in front of palm leaf wallpaper"></div><figcaption>The good old days</figcaption></figure>
-        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n7.jpg" alt="Vintage color photograph of Moshe with two young women, one holding a telephone"></div><figcaption>Never without a smile</figcaption></figure>
-        <figure class="photo full"><div class="frame"><img style="object-position:50% 55%" src="img/n2.jpg" alt="A group gathered together in a restaurant kitchen"></div><figcaption>Good friends, good food</figcaption></figure>
-        <figure class="photo mid"><div class="frame"><img style="object-position:50% 60%" src="img/n4.jpg" alt="A glass of arak, cloudy white with ice water"></div><figcaption>Arak with ice, just the way he liked it</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 20%" src="img/n6.jpg" alt="Vintage color photograph of Moshe with two friends in front of palm leaf wallpaper"></div><figcaption>The good old days, 1981</figcaption></figure>
+        <figure class="photo half"><div class="frame"><img style="object-position:50% 10%" src="img/n7.jpg" alt="Vintage color photograph of Moshe with two young women, one holding a telephone"></div><figcaption>Never without a smile, 1981</figcaption></figure>
+        <figure class="photo full"><div class="frame"><img style="object-position:50% 55%" src="img/n2.jpg" alt="A group gathered together in a restaurant kitchen"></div><figcaption>"Only the best for my family that I love"</figcaption></figure>
+        <figure class="photo mid"><div class="frame"><img style="object-position:50% 60%" src="img/n4.jpg" alt="A glass of arak, cloudy white with ice water"></div><figcaption>Arak, just the way he liked it</figcaption></figure>
       </div>
     </div>
   </div>
@@ -416,9 +416,9 @@
   const sc=document.getElementById('smallCandles');
   const names=['Shlomi Gudai','Galia Movitz','Ruthie Gudai','Steve Roufa','Debbie Gudai','Jessica Toledano','Micah Roufa','Taliya Bashani','Jonathan Gudai','Aimee LeWinter','David Gudai','Daniel Movitz','Michael (Eitan) Norsoph','David Norsoph','Jeremy Toledano','Mor Shoemaker'];
   names.forEach(n=>{
-    const d=document.createElement('div'); d.className='sc'; d.setAttribute('role','button'); d.setAttribute('tabindex','0');
+    const d=document.createElement('div'); d.className='sc on'; d.setAttribute('role','button'); d.setAttribute('tabindex','0');
     d.setAttribute('aria-label','Light the candle for '+n);
-    d.innerHTML='<div class="body"></div><div class="w"></div><div class="f"></div><div class="nm">'+n.replace(' ','<br>')+'</div>';
+    d.innerHTML='<div class="body"></div><div class="w"></div><div class="f" style="animation-delay:-'+(Math.random()*2.2).toFixed(2)+'s;animation-duration:'+(1.8+Math.random()*1.2).toFixed(2)+'s"></div><div class="nm">'+n.replace(' ','<br>')+'</div>';
     const t=()=>d.classList.toggle('on');
     d.addEventListener('click',t);
     d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
