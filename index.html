@@ -27,7 +27,7 @@
     background:
       radial-gradient(ellipse at 50% 85%, rgba(255,190,110,.45) 0%, rgba(255,150,80,.15) 30%, transparent 60%),
       linear-gradient(180deg,#0b1230 0%,#1d2550 30%,#4a3b5e 55%,#b0765a 78%,#e0a66a 92%);
-    text-align:center; padding:5vh 20px 0;
+    text-align:center; padding:calc(5vh + 34px) 20px 0;
   }
   .stars{position:absolute;inset:0;pointer-events:none}
   .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.7;animation:tw 4s infinite ease-in-out}
@@ -156,6 +156,34 @@
   footer p{margin-top:10px;font-style:italic;font-size:23px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
   @media (max-width:760px), (hover:none){footer.beach{background-attachment:scroll,scroll}}
   .credit{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;color:rgba(244,230,194,.55)}
+  .hero-nav{position:absolute;top:20px;left:0;right:0;z-index:5;text-align:center;font-family:"Cinzel",serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase}
+  .hero-nav a{color:#f3dfa8;text-decoration:none;opacity:.85;border-bottom:1px solid transparent;padding-bottom:2px}
+  .hero-nav a:hover{opacity:1;border-bottom-color:#e9cf8a}
+  .hero-nav span{margin:0 14px;opacity:.6}
+  .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:-6px 0 34px}
+  .tab{font-family:"Cinzel",serif;letter-spacing:.12em;font-size:14px;padding:10px 22px;border-radius:40px;cursor:pointer;
+       background:transparent;border:1px solid #b89657;color:var(--ink-soft)}
+  .tab.active{background:linear-gradient(180deg,#e6c77a,#b88f3c);color:#2c1d08;border-color:#d6b56a}
+  .ttitle{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(30px,4vw,42px);letter-spacing:.08em;text-align:center;color:var(--ink)}
+  .tsub{text-align:center;font-style:italic;font-size:22px;color:var(--ink-soft);margin:4px 0 14px}
+  .tribute{max-width:720px;margin:0 auto}
+  .tribute p{margin:0 0 1.05em;font-size:21px;line-height:1.7}
+  .tribute p.pull{text-align:center;font-style:italic;font-size:26px;color:#6b4a22;margin:1.2em 0}
+  .tribute p.closing{text-align:center;font-style:italic;font-size:24px}
+  .tribute .more{margin-top:0}
+  .readmore{text-align:center;margin-top:24px}
+  .tfig{margin:34px auto;background:#fbf7ee;padding:12px 12px 14px;box-shadow:0 8px 24px rgba(60,40,10,.28);border:1px solid #e3d5b4}
+  .tfig img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+  .tfig figcaption{font-style:italic;text-align:center;font-size:17px;color:var(--ink-soft);margin-top:10px}
+  .tfig.narrow{max-width:380px}
+  .tfig.square{max-width:460px}.tfig.square img{aspect-ratio:1/1}
+  .tfig.wide img{aspect-ratio:3/2}
+  .tfig.feature{width:min(980px,92vw);position:relative;left:50%;transform:translateX(-50%);margin:46px 0}
+  .tfig.feature img{aspect-ratio:3/2}
+  .tpair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:34px 0}
+  .tpair .tfig{margin:0}
+  @media (max-width:760px){.tpair{grid-template-columns:1fr}.tfig.feature{width:100%;left:0;transform:none}}
+  @media (max-width:760px){.hero-nav{font-size:11px;letter-spacing:.12em;white-space:nowrap}.hero-nav span{margin:0 7px}.fs-btn{display:none}}
   .fs-btn{position:fixed;top:14px;right:14px;z-index:50;font-size:12px;padding:9px 16px;opacity:.75}
   .fs-btn:hover{opacity:1}
 
@@ -172,6 +200,7 @@
 
 <!-- ================= HERO ================= -->
 <header class="hero">
+  <nav class="hero-nav"><a href="#tributes">Tributes</a><span>&middot;</span><a href="#candle">Light a Candle</a><span>&middot;</span><a href="#photos">Photographs</a></nav>
   <div class="stars" id="stars"></div>
   <div class="hero-title">
     <div class="portrait"><img src="img/portrait.jpg" alt="Moshe Yeffet, smiling, in a houndstooth jacket and kippah"></div>
@@ -280,14 +309,172 @@
 </header>
 
 <!-- ================= EULOGY ================= -->
-<section class="stone">
+<section class="stone" id="tributes">
   <div class="wrap">
     <div class="panel eulogy">
-      <h2>WORDS SPOKEN AT HIS GRAVESIDE</h2>
-      <span class="he">הספד</span>
+      <h2>WORDS OF REMEMBRANCE</h2>
+      <span class="he">דברי זיכרון</span>
       <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
-      <p class="attrib">SHARED BY HIS NIECE &middot; HAR HAMENUCHOT, JERUSALEM</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="family" type="button">Our Family Tribute</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="iris" type="button">Iris&#39;s Graveside Eulogy</button>
+      </div>
 
+      <div class="tpanel" id="tab-family" role="tabpanel">
+        <h3 class="ttitle">What a Beautiful</h3>
+        <p class="tsub">Our Family Tribute to Dod Moshe Yeffet</p>
+        <p class="attrib">WOVEN FROM THE MEMORIES SHARED ON NOVEMBER 16, 2026</p>
+        <div class="tribute">
+        <p>Moshe had a phrase that Jonathan remembered:</p>
+        <p class="pull">“What a beautiful.”</p>
+        <p>His own translation. His own expression. And somehow, everything we needed to say.</p>
+        <p>What a beautiful life. What a beautiful man. What a beautiful thing, to leave behind a family with this many stories, this much laughter, and this much love.</p>
+        <p>We came together across generations and across the miles to remember our Dod Moshe. We brought photographs, candles, memories, and, in several cases, Johnnie Walker Black Label.</p>
+        <p>We also spent the first few minutes trying to turn on everybody’s cameras.</p>
+        <p>Even a family gathering honoring a Jerusalem legend apparently requires technical support.</p>
+        <p>But once we could see one another, something happened. One story opened the door to another. We laughed. We cried. We interrupted. We corrected each other. And through all of it, Moshe felt very close.</p>
+        <p>Because each of us carries a different piece of him.</p>
+        <div class="more" id="tributeMore" hidden>
+        <p>Shlomi carries the years when they were young, when he was still in the army and helping Moshe get the Rondo started. The long nights together. The visits to America. The chicken wings that had to be part of the itinerary.</p>
+        <p>Jonathan described the bond between them as the love of a father for a son. And Ruthie remembered its simplest expression: whenever she spoke with Moshe, he wanted to know, “How is Shlomi?”</p>
+        <p>Across countries and decades, he kept asking. He kept caring.</p>
+        <figure class="tfig narrow"><img src="img/p4.jpg" alt="" style="object-position:50% 0%"><figcaption>Like a son</figcaption></figure>
+        <p>Galia remembered a man who could make things happen. When she wanted to extend her stay in St. Louis after high school, Moshe helped arrange an extension from the army.</p>
+        <p>Ruthie remembered the same influence working in a slightly different direction. She wanted independence. She wanted an army assignment away from home. Her mother spoke to Moshe.</p>
+        <p>Ruthie stayed in Jerusalem.</p>
+        <p>Two nieces. Two different plans. One very effective uncle.</p>
+        <p>That was the thing about Moshe: if you needed help, you could call him. And as Ruthie said, he followed through.</p>
+        <p>Sometimes, he followed through on your mother’s request.</p>
+        <p>Steve knew this firsthand. After he proposed to Dikla, Moshe flew to St. Louis to meet Steve’s family before she gave him her answer.</p>
+        <p>Most people meet the parents. Steve received an international family inspection.</p>
+        <p>Moshe stayed with Steve’s mother and father, enjoyed their company, and apparently delivered a favorable report. Steve remembered the care behind it: Moshe wanted his family protected, happy, and in good hands.</p>
+        <p>Steve’s verdict was succinct: “A terrific person. I rest my case.”</p>
+        <p>He also reminded us to honor the parents who raised Moshe and his siblings. The love we received from him had roots. Now those roots reach through all of us.</p>
+        <p>Debbie first met Moshe in Israel in 1977 and remembered being astonished. She had never known anyone who could drink, smoke, laugh, and party quite like him.</p>
+        <p>She called him “the wickedest good person I knew.”</p>
+        <p>What a description.</p>
+        <p>He was completely himself. Real. Unapologetic. And when it mattered, dependable.</p>
+        <p class="pull">“He always had Shlomi’s back,” Debbie said. “He had my back. He had my children’s backs.”</p>
+        <p>She showed us photographs from Jonathan’s bris in 1981. Moshe had come to St. Louis to celebrate his birth.</p>
+        <p>He showed up. That was how he loved.</p>
+        <div class="tpair"><figure class="tfig "><img src="img/n6.jpg" alt="" style="object-position:50% 20%"><figcaption>The good old days, 1981</figcaption></figure><figure class="tfig "><img src="img/n7.jpg" alt="" style="object-position:50% 10%"><figcaption>Never without a smile, 1981</figcaption></figure></div>
+        <p>And when we went to Jerusalem, he made sure we knew we belonged there.</p>
+        <p>Iris, in her graveside tribute, remembered the pride of telling people their uncle was Moshe from the Rondo. She also thanked him for introducing her father, his friend, to his sister, her mother. A whole family grew from that introduction.</p>
+        <p>Michael Eitan Norsoph, reading her words at our gathering, brought that gratitude into the room.</p>
+        <p class="pull">“Thanks to you, they became a couple and built a wonderful family.”</p>
+        <p>Some of the people remembering Moshe owed their very existence to his instinct for bringing people together.</p>
+        <figure class="tfig wide"><img src="img/p2.jpg" alt="" style="object-position:50% 50%"><figcaption>His brothers and sisters whom he loved</figcaption></figure>
+        <p>And bringing people together became his life’s work.</p>
+        <p>Shlomi told us how Moshe went to Jerusalem’s mayor, Teddy Kollek, with a vision for a café in the park. That vision became Café Rondo. There would be other venues, other performances, other gatherings. Moshe loved the action. He knew how to get things moving and how to get people through the door.</p>
+        <p>Galia put the connection between the man and his place so simply:</p>
+        <p class="pull">“The Rondo was Moshe.”</p>
+        <p>For us, going to Israel meant going to the Rondo. Galia remembered nights that lasted until five in the morning. Jet lag had very little chance against Uncle Moshe.</p>
+        <p>When she returned from America, he made her the cashier.</p>
+        <p>“I only trust you with my money,” she remembered him saying.</p>
+        <p>In Moshe’s world, family could get you an army extension, a place at the best party in Jerusalem, and a job making sure the cash balanced afterward.</p>
+        <p>Ruthie remembered meeting people from Jerusalem and mentioning her uncle.</p>
+        <p class="pull">“Moshe Yeffet is your uncle?”</p>
+        <p>You could hear the recognition in the question.</p>
+        <p>And Galia remembered how lightly he wore that reputation: “Not in a big shot way.” His connections were there to be used for someone who needed help. Sit down beside him, explain the problem, and he might already be reaching for the phone.</p>
+        <p>He knew the entertainers, the tour guides, the people who could help. But once you were there, he made you feel like the person he had been waiting to see.</p>
+        <p>Micah Roufa remembered being twelve, almost thirteen, arriving before his bar mitzvah celebration. Moshe set him up with a Coca-Cola, chips, and hummus.</p>
+        <p>To an adult, perhaps a snack.</p>
+        <p>To that boy, the full VIP experience.</p>
+        <p>Micah remembered feeling like the coolest kid in the world. And he remembered the consistency: every visit, the same warmth, the same energy. Moshe helped teach him something about who he was and where he came from.</p>
+        <p>In a family full of people with gifts to offer, Moshe took particular responsibility for showing everyone how to enjoy being alive.</p>
+        <p>Tali remembered her own bat mitzvah and the way Moshe rolled out the red carpet. Music, celebration, generosity. Everything laid out for everyone else’s happiness.</p>
+        <p>She also remembered arriving in Israel as a child and being dropped off while her mother went to the Rondo.</p>
+        <p>There were two problems with this arrangement: her mother was leaving, and her mother was going to the party without her.</p>
+        <p>On the occasions Tali got to go, she remembered the music, the smoke, and the unmistakable feeling that something wonderful was happening.</p>
+        <p>Years later, Moshe brought that spirit to St. Louis. Milty put a sign on the pool house: “Moshe’s Man Cave.” His visits became a family tradition, including time with his daughter Lauren.</p>
+        <p>Tali reminded us that someone who gave that much of himself continues to fill our lives long after his physical presence is gone.</p>
+        <p>Aimee remembered him as almost a celebrity. Larger than life, unmistakable, always part of Israel. She remembered that he made a point of seeing her and Ryan during their Birthright trip, and she remembered the family together at Passover.</p>
+        <p>She also gave us something important that evening: the joy of hearing everyone else’s stories and getting to know him more deeply through them.</p>
+        <p>We can still discover more of someone we love. We can give those discoveries to each other.</p>
+        <p>David Gudai remembered a man who appeared to be frozen in time. The Moshe in the photographs from the eighties looked remarkably like the Moshe he remembered from the nineties, the two-thousands, and beyond.</p>
+        <p>David’s theory was that the Black Label had preserved him.</p>
+        <p>Possibly pickled him.</p>
+        <p>Galia offered another piece of evidence: Moshe took his grooming seriously. She remembered going with him to the hairdresser. The man intended to look good.</p>
+        <p>Between the family theories, we may never settle the science. We can agree that he was handsome, full of laughter, and wonderfully himself.</p>
+        <p>Ruthie also remembered his appreciation for women, especially beautiful women. David Gudai admitted he had never quite connected all the dots in the stories of Moshe’s many loves.</p>
+        <p>Somewhere in the family, a voice offered excellent advice:</p>
+        <p class="pull">“That’s okay, don’t try.”</p>
+        <p>Even after an evening devoted to his life, Moshe was entitled to a little mystery.</p>
+        <p>Jonathan had found the obvious comparison: the world’s most interesting man. Michael supplied the voice for a Johnnie Walker version of the famous line, then announced:</p>
+        <p class="pull">“I’ve been training for this moment all of my life.”</p>
+        <p>Moshe would have enjoyed that. The family together, a little whiskey, and somebody getting a good laugh.</p>
+        <figure class="tfig square"><img src="img/n5.jpg" alt="" style="object-position:50% 20%"><figcaption>The most interesting man in the world</figcaption></figure>
+        <p>David Norsoph carried one very specific memory: Moshe told him he didn’t eat dinner.</p>
+        <p>This stayed with David for more than twenty years.</p>
+        <p>A man who owned a restaurant. Who loved food. Who fed everybody.</p>
+        <p>No dinner.</p>
+        <p>The family immediately began discussing lunch, meal times, and what exactly qualified as dinner. Even now, Moshe could get an entire room talking about his daily routine.</p>
+        <p>Ruthie remembered his response to dinner invitations: “No, no, no dinner. Let’s go out to lunch.”</p>
+        <p>Shlomi explained that lunch was the main event. The nights were for other things.</p>
+        <p>Moshe had a system.</p>
+        <p>And underneath that detail, David remembered the essential thing: the energy, the positivity, the smiles.</p>
+        <p>Daniel remembered his first job at the Rondo, at about ten years old.</p>
+        <p>His assignment was to open a glass bottle of Coca-Cola.</p>
+        <p>His pay was twenty shekels.</p>
+        <p>Daniel felt like a millionaire.</p>
+        <p>Moshe understood how to make a child feel capable and important. Years later, when Daniel was in his twenties and trying to work out what to do with his life, Moshe gave him something quieter: time to talk, and someone who listened.</p>
+        <p>Behind that enormous personality was a man who could sit beside you and make room for whatever was on your mind.</p>
+        <p>Daniel remembered Moshe and Milty together at the Rondo:</p>
+        <p class="pull">“Forget about it. That was the coolest place I’ve ever been in my life.”</p>
+        <p>Imagine being a boy watching those two. Seeing how much happiness a person could create simply by welcoming people, making them laugh, and making sure they were taken care of.</p>
+        <p>Daniel now works in hospitality, helping people feel welcome and have a good time. He recognized Moshe’s influence in that work, alongside his father’s.</p>
+        <p>He grew up watching people he loved do it beautifully.</p>
+        <p>And he remembered Moshe calling and singing:</p>
+        <p class="pull">“I love you so much, Daniel.”</p>
+        <p>At our gathering, Daniel gave those words back to the whole family.</p>
+        <p class="pull">“I love you so much.”</p>
+        <p>There is a great deal of Moshe in that sentence.</p>
+        <p>Jeremy, our JJ, remembered being young at Passover in Shlomi and Debbie’s house and hearing Moshe’s laughter roar through the rooms.</p>
+        <p>It was so loud that he briefly wondered whether everything was okay.</p>
+        <p>Everything was very much okay. Moshe was there.</p>
+        <p>How extraordinary, to leave a memory that a younger generation can still hear.</p>
+        <p>Jonathan remembered asking Moshe why, in his seventies, he didn’t sell the Rondo and spend his time traveling and enjoying himself.</p>
+        <p>Moshe explained how much hosting people meant to him.</p>
+        <p>The pleasure was already there: people arriving, tables filling, someone having a wonderful time because he had made it possible.</p>
+        <p>Jonathan remembered it again on his honeymoon with Alex. Their trip would take them to Israel, Italy, and India. Moshe made it clear that whatever their schedule looked like, they were spending time with him.</p>
+        <p>He took them to Machneyuda, celebrated them over arak in the middle of the day, and made their happiness part of his own.</p>
+        <p>He wanted to be with them. He wanted to give them a beautiful memory.</p>
+        <p>And he did.</p>
+        <div class="tpair"><figure class="tfig "><img src="img/n1.jpg" alt="" style="object-position:50% 35%"><figcaption>Celebrating Jonathan and Alex&#39;s honeymoon, 2014</figcaption></figure><figure class="tfig "><img src="img/n3.jpg" alt="" style="object-position:50% 10%"><figcaption>A gift for the newlyweds</figcaption></figure></div>
+        <p class="pull">“What a beautiful.”</p>
+        <p>Jonathan remembered hearing those words applied to the things Moshe admired, even a telephone. There was something so completely him about it. He saw something that delighted him, and he said so.</p>
+        <p>He gave his pleasure a voice.</p>
+        <p>He gave his affection a voice, too. We heard it in Daniel’s birthday song, in Ruthie’s memories of his concern for Shlomi, and in the stories of every visit he made and every door he opened.</p>
+        <p>At ninety-two, he had given us a lifetime of examples.</p>
+        <p>Michael asked us to carry those examples into action. To honor Moshe by opening our homes and our arms. By doing a little more for someone than we might otherwise have done. By letting our children see what that love looks like.</p>
+        <p>He spoke through tears about the people our family has lost, and about the peace he finds in knowing their memories live inside us.</p>
+        <p>Then he asked us to take those memories out into the world.</p>
+        <p>To let the people we love continue shaping how we live.</p>
+        <p>Ruthie recognized that same spirit in Jonathan bringing us together: a loving thought followed by an action.</p>
+        <p>And Galia reminded us what a gift it is to have a family that answers, “Here I am.”</p>
+        <p>We wished we could all be in Jerusalem. Instead, we found a way to gather from where we were. We heard each other’s voices. We said his name. We lit our candles.</p>
+        <p>And for a little while, across all that distance, we were together with him.</p>
+        <p>So perhaps this is how we keep him close.</p>
+        <p>We make the call. We welcome the guest. We listen when someone is trying to find their way. We make a child feel like a million dollars. We let our laughter fill the house.</p>
+        <p>We tell the stories, including the funny ones. Especially the funny ones.</p>
+        <p>We give our affection a voice while the people we love are here to hear it.</p>
+        <p>Daniel showed us a photograph of Moshe driving his green Mercedes. He remembered the feeling of being in the back seat, knowing Moshe would get them where they were going and show them the best places.</p>
+        <figure class="tfig feature"><img src="img/drive.jpg" alt="" style="object-position:50% 50%"><figcaption>Moshe at the wheel of his green Mercedes. Photograph by Daniel Movitz</figcaption></figure>
+        <p>Debbie looked at that photograph and saw the light.</p>
+        <p>“He brought light,” she said.</p>
+        <p>He did.</p>
+        <p>To Jerusalem. To the Rondo. To our homes. To our childhoods. To the milestones he helped us celebrate and the ordinary days he made memorable.</p>
+        <p class="closing">Dod Moshe, we miss you.</p>
+        <p class="closing">We love you so much.</p>
+        <p class="closing">Thank you for showing us how much life a person can bring into the lives of others.</p>
+        <p class="closing">What a beautiful.</p>
+        </div>
+        </div>
+        <div class="readmore"><button class="btn" id="readMore" type="button" aria-expanded="false" aria-controls="tributeMore">Read the full tribute</button></div>
+      </div>
+
+      <div class="tpanel" id="tab-iris" role="tabpanel" hidden>
+        <p class="attrib">SHARED BY HIS NIECE IRIS &middot; HAR HAMENUCHOT, JERUSALEM</p>
       <p class="open">Our Uncle Moshe!</p>
       <p>A dear man, beloved by everyone!</p>
       <p>How lucky we are that you were a friend of our father's and introduced him to your sister, our mother. Thanks to you, they became a couple and built a wonderful family. For that, we will be grateful to you for the rest of our lives.</p>
@@ -306,6 +493,7 @@
         <p>דוד משה שלנו, לכל מקום שהגעת הבאת איתך אור ושמחה. היית מגנט, כולם חיפשו ורצו להיות בחברתך. היינו מחכים לפגישות איתך, לשמוע ממך סיפורים של פעם.. היית מתבל את הסיפורים, תמיד היה מעניין ומסקרן לשמוע אותך. אין ירושלמי שלא מכיר את משה יפת.</p>
         <p>היינו תמיד משוויצות שדוד שלנו זה משה מהרונדו, מירושלים של זהב, תמיד זה היה שם דבר.</p>
         <p>הילדים שלנו היו מחכים שדוד משה יבוא, יבקש ויסקי או ארק עם קרח, איך שהכוסית נגמרת, בלי מילים היא מתמלאה מאליה.. היו מסתכלים עלייך ומקשיבים לך בהתפעלות ובהמון אהבה, לא רוצים שהמפגשים איתך יסתיימו.</p>
+      </div>
       </div>
     </div>
   </div>
@@ -340,10 +528,10 @@
 </section>
 
 <!-- ================= PHOTOS ================= -->
-<section class="stone">
+<section class="stone" id="photos">
   <div class="wrap">
     <div class="panel">
-      <h2>REMEMBERING MOSHE</h2>
+      <h2>A LIFE IN PHOTOGRAPHS</h2>
       <span class="he">זכרונות</span>
       <svg class="ornament" viewBox="0 0 220 22"><path d="M0 11H85M135 11H220" stroke="#a98450"/><path d="M110 2 L118 11 L110 20 L102 11Z" fill="#c9a24a"/><circle cx="92" cy="11" r="2.5" fill="#a98450"/><circle cx="128" cy="11" r="2.5" fill="#a98450"/></svg>
       <div class="gallery">
@@ -417,7 +605,7 @@
 
   // one small candle for each person gathered
   const sc=document.getElementById('smallCandles');
-  const names=['Shlomi Gudai','Galia Movitz','Ruthie Gudai','Steve Roufa','Debbie Gudai','Jessica Toledano','Micah Roufa','Taliya Bashani','Jonathan Gudai','Aimee LeWinter','David Norsoph','David Gudai','Daniel Movitz','Michael (Eitan) Norsoph','Jeremy Toledano','Mor Shoemaker'];
+  const names=['Shlomi Gudai','Galia Movitz','Ruthie Gudai','Steve Roufa','Debbie Gudai','Jessica Toledano','Micah Roufa','Tali Bashani','Jonathan Gudai','Aimee LeWinter','David Norsoph','David Gudai','Daniel Movitz','Michael (Eitan) Norsoph','Jeremy Toledano','Mor Shoemaker'];
   names.forEach(n=>{
     const d=document.createElement('div'); d.className='sc on'; d.setAttribute('role','button'); d.setAttribute('tabindex','0');
     d.setAttribute('aria-label','Light the candle for '+n);
@@ -434,6 +622,19 @@
       if(!document.fullscreenElement) await document.documentElement.requestFullscreen();
       else await document.exitFullscreen();
     }catch(e){ document.getElementById('fsBtn').style.display='none'; }
+  });
+
+  // tribute tabs and read more
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>{x.classList.toggle('active',x===t);x.setAttribute('aria-selected',x===t)});
+    document.getElementById('tab-family').hidden=t.dataset.tab!=='family';
+    document.getElementById('tab-iris').hidden=t.dataset.tab!=='iris';
+  }));
+  const rm=document.getElementById('readMore'), more=document.getElementById('tributeMore');
+  rm.addEventListener('click',()=>{
+    const open=more.hidden; more.hidden=!open; rm.setAttribute('aria-expanded',open);
+    rm.textContent=open?'Show less':'Read the full tribute';
+    if(!open) document.getElementById('tributes').scrollIntoView({behavior:'smooth'});
   });
 </script>
 </body>
